@@ -1,0 +1,7 @@
+.containerImage {
+  width: max-content;
+  height: max-content;
+  position: relative;
+  margin-top: 1rem;
+  box-sizing: border-box;
+}

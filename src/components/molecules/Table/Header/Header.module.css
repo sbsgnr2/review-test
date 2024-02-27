@@ -1,0 +1,11 @@
+.thead tr {
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 600;
+  height: 2rem;
+}
+
+.thead tr th {
+  text-align: left;
+  padding: 0rem 1rem;
+}

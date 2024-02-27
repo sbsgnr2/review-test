@@ -1,0 +1,27 @@
+.li {
+  width: max-content;
+  height: 2.1rem;
+  min-height: max-content;
+  display: flex;
+  align-items: center;
+}
+
+.li a {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  box-sizing: border-box;
+}
+
+.li a:hover {
+  color: var(--focused-color);
+  fill: var(--focused-color);
+}
+
+@media screen and (width <= 750px) {
+  .title {
+    display: none;
+  }
+}

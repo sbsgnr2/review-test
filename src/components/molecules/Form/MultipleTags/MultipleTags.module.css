@@ -1,0 +1,27 @@
+.inputContainer { 
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, max-content);
+  grid-row-gap: 1rem;
+  box-sizing: border-box;
+}
+
+.tagsContainer {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+}

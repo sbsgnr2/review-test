@@ -1,0 +1,17 @@
+.main {
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  background-color: var(--secondary-bg-color);
+}
+
+@media screen and (width <= 550px) {
+  .main {
+    background-color: var(--main-bg-color);
+  }
+}

@@ -1,0 +1,32 @@
+.tbody tr:first-child td {
+  border-top: solid 2px var(--soft-border-color);
+}
+
+.tbody tr td {
+  width: max-content;
+  padding: 0.4rem 1rem;
+  height: 3rem;
+}
+
+.iconsContainer {
+  width: 100% !important;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+.iconsContainer span {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: var(--second-color);
+  box-sizing: border-box;
+}
+
+.iconsContainer span:hover {
+  fill: black;
+}

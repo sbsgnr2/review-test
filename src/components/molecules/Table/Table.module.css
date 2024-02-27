@@ -1,0 +1,19 @@
+.table {
+  border-spacing: 0;
+}
+
+.container {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, max-content);
+  grid-row-gap: 1rem;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}

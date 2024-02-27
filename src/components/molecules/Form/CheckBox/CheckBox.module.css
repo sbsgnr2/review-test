@@ -1,0 +1,10 @@
+.label { 
+  width: max-content; 
+  cursor: pointer;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.input {
+  cursor: pointer;
+}

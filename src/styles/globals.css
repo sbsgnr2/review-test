@@ -1,0 +1,56 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+
+@media screen and (width <= 680px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+:root {
+  --main-bg-color: #ffffff;
+  --secondary-bg-color: #f6f8fa;
+  --terciary-bg-color: #8fbc8f;
+  --strong-bg-color: #20313a;
+  --dark-bg-color: #000000;
+  --row-bg-primary-color: #ffffff;
+  --row-bg-secondary-color: #f3f3f3;
+  --contained-button-bg-color: #047ad7;
+  --contained-button-bg-hover-color: #0e65bb;
+  --default-bg-tooltip: #fff8dc;
+  --primary-color: #000000;
+  --second-color: #777777;
+  --contrast-color: #ffffff;
+  --light-color: #a9a9a9;
+  --error-color: #ff0000;
+  --focused-color: #047ad7;
+  --border-color: #cccccc;
+  --soft-border-color: #dcdcdc;
+  --contained-button-color: #ffffff;
+  --outlined-button-color: #047ad7;
+  --contained-button-border-color: #047ad7;
+  --option-hover-color: #3b723b;
+  --suggested-reply: #c1e1fd;
+}

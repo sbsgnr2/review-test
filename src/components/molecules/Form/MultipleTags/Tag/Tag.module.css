@@ -1,0 +1,16 @@
+.tag {
+  width: max-content;
+  height: max-content;
+  border: solid 1px var(--outlined-button-color);
+  color: var(--outlined-button-color);
+  font-size: 0.85rem;
+  border-radius: 0.3rem;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, max-content);
+  align-items: center;
+  justify-content: center;
+  padding-left: 1rem;
+  gap: 0.3rem;
+  box-sizing: border-box;
+}

@@ -1,0 +1,32 @@
+.ul {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: max-content;
+  list-style-type: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.ul li a {
+  width: 100%;
+  height: max-content;
+  font-size: 0.95rem;
+  color: var(--contrast-color);
+  fill: var(--contrast-color); 
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, max-content);
+  grid-column-gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem 0;
+  box-sizing: border-box;
+}
+
+.ul li a:hover {
+  color: var(--option-hover-color);
+  fill: var(--option-hover-color);
+}

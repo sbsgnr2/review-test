@@ -1,0 +1,9 @@
+.options {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
+  grid-auto-rows: max-content;
+  grid-gap: 0.7rem;
+  box-sizing: border-box;
+}

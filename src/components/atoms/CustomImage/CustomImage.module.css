@@ -1,0 +1,13 @@
+.circle {
+  position: relative;
+  border: solid 2px white;
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: var(--terciary-bg-color);
+  box-sizing: border-box;
+}
+
+.standard {
+  position: relative;
+  box-sizing: border-box;
+}

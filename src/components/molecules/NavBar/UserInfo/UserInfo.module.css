@@ -1,0 +1,57 @@
+.userInfo {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0 1rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px var(--soft-border-color);
+  box-sizing: border-box;
+}
+
+.userInfo p {
+  font-size: 0.7rem;
+  width: 5rem;
+  font-weight: 500;
+}
+
+.userInfo .buttonText {
+  font-weight: 600;
+}
+
+.image_container {
+  position: relative;
+}
+
+.logoName {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: solid 1px var(--primary-color);
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+.noView, .iconMob, .isClose {
+  display: none;
+}
+
+.icon, .iconMob {
+  fill: var(--primary-color);
+}
+
+@media screen and (width <= 750px) {
+  .name, .imageContain, .buttonText {
+    display: none;
+  }
+
+  .iconMob {
+    display: block;
+  }
+}

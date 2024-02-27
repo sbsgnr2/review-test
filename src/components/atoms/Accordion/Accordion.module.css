@@ -1,0 +1,15 @@
+.accordionHeader {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.accordionIcon {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.accordionContent {
+    transition: max-height 0.3s ease;
+}

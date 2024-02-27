@@ -1,0 +1,10 @@
+.selected_option {
+  position: relative;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  padding: 0.4rem 1rem;
+}

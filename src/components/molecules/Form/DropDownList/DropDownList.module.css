@@ -1,0 +1,13 @@
+.container {
+  width: max-content;
+  max-width: 100%;
+  height: max-content;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.label {
+  font-size: 0.7rem;
+  color: var(--second-color);
+  text-transform: uppercase;
+}

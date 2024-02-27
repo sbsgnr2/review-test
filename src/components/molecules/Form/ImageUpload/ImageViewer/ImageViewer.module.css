@@ -1,0 +1,37 @@
+.imageContainer {
+  border: 1px dashed var(--border-color);
+  width: 6.25rem;
+  height: 6.25rem;
+  line-height: 6.25rem;
+  text-align: center;
+  background-image: url('/images/no-image.jpg');
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.buttonCont {
+  position: absolute;
+  top: -0.6rem;
+  right: -0.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px var(--dark-bg-color);
+  background-color: var(--dark-bg-color);
+  color: var(--contrast-color);
+  border-radius: 100%;
+  cursor: pointer;
+  fill: var(--contrast-color);
+  box-sizing: border-box;
+  transition: background-color 0.5s, border-color 0.5s;
+}
+
+.buttonCont:hover {
+  background-color: var(--focused-color);
+  border-color: var(--focused-color);
+}

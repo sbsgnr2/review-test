@@ -1,0 +1,39 @@
+.filtersActions {
+  width: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.filtersActions p {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--second-color);
+}
+
+.headerTable {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.clearText {
+  color: var(--focus-color) !important;
+  text-decoration: underline;
+  font-size: 0.7rem;
+}
+
+@media screen and (width <= 860px) {
+  .filterText {
+    display: none;
+  }
+
+  .headerTable {
+    margin-bottom: 1rem;
+  }
+}

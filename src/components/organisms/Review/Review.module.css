@@ -1,0 +1,17 @@
+.providerIcon {
+    display: flex;
+    align-items: center;
+}
+
+.accordion {
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.suggestedReply {
+    background-color: var(--suggested-reply);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 15px 15px 0px 15px;
+}

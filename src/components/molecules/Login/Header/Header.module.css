@@ -1,0 +1,11 @@
+.logo_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.h1 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}

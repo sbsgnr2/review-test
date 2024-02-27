@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+@media screen and (width <= 550px) {
+  .container {
+    background-color: var(--main-bg-color);
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}

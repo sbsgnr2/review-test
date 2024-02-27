@@ -1,0 +1,15 @@
+.sectionTitle {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.count {
+  width: max-content;
+  height: max-content;
+  margin-right: 1rem;
+  color: var(--second-color);
+  font-weight: 400;
+}

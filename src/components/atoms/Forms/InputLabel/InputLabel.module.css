@@ -1,0 +1,8 @@
+.label {
+  position: absolute;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+  pointer-events: none;
+  text-transform: uppercase;
+  z-index: 1;
+}

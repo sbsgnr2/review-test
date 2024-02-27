@@ -1,0 +1,30 @@
+.textBoxContainer, .outlined, .borderOutlined { 
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input:focus {
+  border-bottom: 2px solid var(--focused-color);
+}
+
+.outlined input, .borderOutlined input {
+  border: 1px solid var(--border-color);
+}
+
+.outlined input:focus {
+  border: 2px solid var(--focused-color);
+}
+
+
+.borderOutlined input:focus {
+  border: 1px solid var(--border-color);
+}

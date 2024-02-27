@@ -1,0 +1,5 @@
+.linkText {
+  font-size: 0.8rem;
+  color: var(--focused-color);
+  font-weight: 600;
+}

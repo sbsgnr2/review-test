@@ -1,0 +1,12 @@
+.options {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.options p {
+  font-weight: 600;
+  font-family: sans-serif;
+}

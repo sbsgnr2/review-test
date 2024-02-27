@@ -1,0 +1,7 @@
+.error {
+  height: max-content;
+  color: var(--error-color); 
+  font-size: 0.8rem;
+  margin-left: 0.625rem;
+  margin-top: 0.1rem;
+}

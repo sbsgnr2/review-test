@@ -1,0 +1,38 @@
+.main {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--secondary-bg-color);
+  box-sizing: border-box;
+}
+
+.login_container {
+  width: 20rem;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr max-content;
+  grid-row-gap: 1rem;
+  justify-content: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: var(--main-bg-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+@media screen and (width <= 500px) {
+  .main {
+    padding: 0;
+  }
+
+  .login_container {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+}

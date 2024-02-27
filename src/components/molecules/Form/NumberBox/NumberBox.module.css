@@ -1,0 +1,8 @@
+.textBoxContainer {
+  position: relative;
+}
+
+.label {
+  font-size: 0.8rem;
+  margin-left: 0.625rem;
+}

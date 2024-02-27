@@ -1,0 +1,31 @@
+.buttonContent {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: solid 1px rgb(231, 231, 231);
+  border-radius: 0.4rem;
+  margin: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+.hideButton {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.noView, .noViewAltLog {
+  display: none;
+}
+
+@media screen and (width <= 750px) {
+  .altLogOut, .noViewAltLog {
+    display: block;
+  }
+
+  .buttonContent {
+    display: none;
+  }
+}

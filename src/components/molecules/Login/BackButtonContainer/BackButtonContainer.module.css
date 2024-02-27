@@ -1,0 +1,11 @@
+.icon_button_container {
+  position: absolute; 
+  top: 1.7rem; 
+  left: 1.5rem;
+  fill: var(--light-color);
+  transition: fill 1s ease;
+}
+
+.icon_button_container:hover {
+  fill: var(--primary-color);
+}

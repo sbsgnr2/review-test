@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  box-sizing: border-box;
+}
+
+.icon {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
+  cursor: pointer;
+  fill: white;
+  box-sizing: border-box;
+}
