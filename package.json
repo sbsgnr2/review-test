@@ -20,7 +20,7 @@
     "react": "18",
     "react-dom": "18",
     "react-draft-wysiwyg": "^1.15.0",
-    "react-slate": "^0.5.1",
+    "slate-react": "^0.102.0",
     "swr": "^2.2.5",
     "zod": "3.22.4",
     "zustand": "^4.5.0"
