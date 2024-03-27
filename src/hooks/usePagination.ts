@@ -1,9 +1,9 @@
 import { paginationType } from "@/models/paginationType"
 import { ChangeEvent, useState } from "react"
 
-export function usePagination ({handlePagination, totalPages, rowsPerPage, totalResults}: paginationType) {
-  const [page, setPage] = useState<number>(1)
-  
+export function usePagination ({handlePagination, totalPages, rowsPerPage, totalResults, pageNumber}: paginationType) {
+  const [page, setPage] = useState<number>(pageNumber)
+
   function updatePage({ newValue }: { newValue: number }) {
     if (newValue > 0 && newValue <= totalPages) {
       setPage(newValue)

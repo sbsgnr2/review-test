@@ -1,1 +1,5 @@
-export interface ImageUploadType { name: string; alt: string }
+export interface ImageUploadType { 
+  name: string; 
+  alt: string 
+  resetSignal?: boolean;
+}

@@ -1,0 +1,11 @@
+.starContainer {
+  width: max-content;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  box-sizing: border-box;
+}

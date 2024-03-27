@@ -1,0 +1,14 @@
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.toggleCont {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  align-items: center;
+  box-sizing: border-box;
+}

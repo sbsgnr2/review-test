@@ -18,6 +18,7 @@ export function NumberBox({
   height = '2.4rem',
   withErrorPadding = false,
   variant = 'border_focused_outlined',
+  resetSignal = false,
 }: numberBoxType) {
   return (
     <>
@@ -27,7 +28,7 @@ export function NumberBox({
           width,
           maxWidth,
           paddingBottom: withErrorPadding ? '1.4rem' : 0,
-          marginTop: withErrorPadding ? '1.3rem' : '2rem',
+          marginTop: withErrorPadding ? '1.3rem' : label?.length ? '2rem' : 0,
         }}
       >
         <InputLabel
@@ -46,6 +47,7 @@ export function NumberBox({
           required={required}
           variant={variant}
           height={height}
+          resetSignal={resetSignal}
         />
       </div>
     </>

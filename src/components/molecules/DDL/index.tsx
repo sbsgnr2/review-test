@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import { DDLType } from './DDLType'
 import { DropDownList } from '../Form/DropDownList'
+import { useDDL } from './useDDL'
 
 export function DDL({
   options,
@@ -12,14 +12,11 @@ export function DDL({
   height = '2rem',
   required = true,
   value = null,
+  borderRadius,
+  fontSize = '0.7rem',
+  color = 'var(--second-color)',
 }: DDLType) {
-  const [selected, setSelected] = useState<string>(value ? value : '')
-
-  function handleSelected(selectedValue: string) {
-    setSelected(selectedValue)
-    handleChange(selectedValue)
-  }
-
+  const { selected, handleSelected } = useDDL({ handleChange, value })
   return (
     <DropDownList
       options={options}
@@ -32,6 +29,9 @@ export function DDL({
       fontWeight={fontWeight}
       height={height}
       required={required}
+      borderRadius={borderRadius}
+      labelColor={color}
+      fontSize={fontSize}
     />
   )
 }

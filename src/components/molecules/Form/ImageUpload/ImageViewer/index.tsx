@@ -17,7 +17,12 @@ export function ImageViewer({ selectedImage, handleRemoveImage, alt }: ImageView
             alt={alt}
           />
           <div className={styles.buttonCont}>
-            <IconButton onClick={handleRemoveImage} width='100%' height='100%'>
+            <IconButton
+              onClick={handleRemoveImage}
+              width='100%'
+              height='100%'
+              color='var(--contrast-color)'
+            >
               <CloseIcon width='0.8rem' height='0.8rem' />
             </IconButton>
           </div>

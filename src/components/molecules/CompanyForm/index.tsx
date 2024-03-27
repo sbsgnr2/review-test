@@ -1,25 +1,29 @@
 import generalStyle from '@/styles/CustomFormContainer.module.css'
-import { validateCompanyMonthLimit } from '@/utils/validations/company/monthLimit'
 import { BaseForm } from '../Form/BaseForm'
 import { ImageUpload } from '../Form/ImageUpload'
 import { MultipleTags } from '../Form/MultipleTags'
 import { NumberBox } from '../Form/NumberBox'
-import { TextArea } from '../Form/TextArea/indext'
+import { TextArea } from '../Form/TextArea'
 import { TextBox } from '../Form/TextBox'
 import { useCompanyForm } from './useCompanyForm'
 import { validateCompanyName } from '@/utils/validations/company/name'
 import { validateCompanySlug } from '@/utils/validations/company/slug'
+import { validateCompanySmsMonthlyLimit } from '@/utils/validations/company/smsMonthlyLimit'
+import { Toast } from '../Toast'
 
 export function CompanyForm() {
-  const { handleSubmit, handleTags } = useCompanyForm()
+  const { handleSubmit, handleTags, loading, messages, removeMessages, resetSignal } =
+    useCompanyForm()
   return (
     <div className={generalStyle.container}>
+      <Toast messages={messages} removeMessages={removeMessages} />
       <BaseForm
         submitTitle='Add Company'
         handleSubmit={handleSubmit}
         horizontalJustify='flex-start'
+        loading={loading}
       >
-        <ImageUpload name='companyImage' alt='Company Image' />
+        <ImageUpload name='logo' alt='Company Image' resetSignal={resetSignal} />
         <TextBox
           label='Company Name'
           name='name'
@@ -52,10 +56,11 @@ export function CompanyForm() {
         />
         <NumberBox
           label='SMS Monthly Limit'
-          name='monthLimit'
+          name='smsMonthlyLimit'
           changeValue={() => {}}
           maxWidth='30rem'
-          validationFunction={validateCompanyMonthLimit}
+          validationFunction={validateCompanySmsMonthlyLimit}
+          resetSignal={resetSignal}
         />
         <TextArea
           label='Description'
@@ -63,12 +68,12 @@ export function CompanyForm() {
           width='100%'
           maxWidth='30rem'
           variant='border_focused_outlined'
-          name='message'
+          name='description'
           backgroundColor='var(--main-bg-color)'
           fontWeight={'500'}
           inputFontSize={'0.75rem'}
         />
-        <MultipleTags onTagsChange={handleTags} maxWidth='450px' />
+        <MultipleTags onTagsChange={handleTags} maxWidth='450px' resetSignal={resetSignal} />
       </BaseForm>
     </div>
   )

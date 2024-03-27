@@ -1,0 +1,21 @@
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.secondaryTitle {
+  font-weight: 700;
+  font-size: 0.65rem;
+  color: var(--primary-color);
+}
+
+.editorContent {
+  width: 100%;
+  height: max-content;
+  border: solid 1px #f1f1f1;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+

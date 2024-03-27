@@ -1,0 +1,14 @@
+.titleWithToggle {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-sizing: border-box;
+}
+
+.secondaryTitle {
+  font-weight: 700;
+  font-size: 0.65rem;
+  color: var(--primary-color);
+}

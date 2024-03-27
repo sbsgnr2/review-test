@@ -1,10 +1,12 @@
 import styles from './Body.module.css'
-import { CheckBox } from '../../Form/CheckBox'
 import { bodyType } from './bodyType'
-import { CloseIcon } from '@/components/atoms/Icons/CloseIcon'
-import { EditIcon } from '@/components/atoms/Icons/EditIcon'
-import { IconButton } from '../../Form/Button/IconButton'
 import { objectDataType } from '../tableType'
+import { Actions } from '../Actions'
+import { CheckBoxRow } from '../CheckBoxRow'
+import { RedirectButton } from '../RedirectButton'
+import { StarRow } from '../StarRow'
+import { MultipleRows } from '../MultipleRows'
+import { useBody } from './useBody'
 
 export default function Body({
   data,
@@ -19,7 +21,8 @@ export default function Body({
   oddBackgroundColor = 'var(--row-bg-secondary-color)',
   color = 'var(--primary-color)',
 }: bodyType) {
-  const fields: string[] = header?.map((row) => row.field)
+  const { fields, redirect } = useBody({ header })
+
   return (
     <>
       <tbody className={styles.tbody} style={{ fontSize, color }}>
@@ -33,14 +36,12 @@ export default function Body({
                 }`,
               }}
             >
-              {tableConfig.withCheckbox && (
-                <td>
-                  <CheckBox
-                    checked={checkedArr.includes(element.id)}
-                    handleChange={() => handleCheckedArr({ key: element.id })}
-                  />
-                </td>
-              )}
+              <CheckBoxRow
+                tableConfig={tableConfig}
+                checkedArr={checkedArr}
+                element={element}
+                handleCheckedArr={handleCheckedArr}
+              />
               {fields.map((key: string) => {
                 return (
                   <td
@@ -52,40 +53,34 @@ export default function Body({
                       fontWeight: tableConfig.colorRows.includes(key) ? '600' : 'inherit',
                     }}
                   >
-                    {element[key]}
+                    <>
+                      {tableConfig.starRows.includes(key) && typeof element[key] === 'number' ? (
+                        <StarRow rating={Number(element[key])} />
+                      ) : tableConfig.redirectButtons.includes(key) ? (
+                        <RedirectButton element={String(element[key])} redirect={redirect} />
+                      ) : tableConfig.selecteds.some((select: any) => select.field === key) ? (
+                        tableConfig.selecteds
+                          .find((select: any) => select.field === key)
+                          ?.element(element[key])
+                      ) : (
+                        <>
+                          {tableConfig.multipleRows.includes(key) && Array.isArray(element[key]) ? (
+                            <MultipleRows element={element[key] as string[]} />
+                          ) : (
+                            element[key]
+                          )}
+                        </>
+                      )}
+                    </>
                   </td>
                 )
               })}
-              {tableConfig.withActions && (
-                <td className={styles.iconsContainer}>
-                  {handleEdit && tableConfig.withEdit && (
-                    <IconButton
-                      width='max-content'
-                      height='max-content'
-                      onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-                        handleEdit({ event, id: element.id })
-                      }
-                    >
-                      <span>
-                        <EditIcon width='1rem' height='1rem' />
-                      </span>
-                    </IconButton>
-                  )}
-                  {handleDelete && tableConfig.withDelete && (
-                    <IconButton
-                      width='max-content'
-                      height='max-content'
-                      onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-                        handleDelete({ event, id: element.id })
-                      }
-                    >
-                      <span>
-                        <CloseIcon width='1rem' height='1rem' />
-                      </span>
-                    </IconButton>
-                  )}
-                </td>
-              )}
+              <Actions
+                tableConfig={tableConfig}
+                handleEdit={handleEdit}
+                element={element}
+                handleDelete={handleDelete}
+              />
             </tr>
           )
         })}

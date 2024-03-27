@@ -9,14 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/draft-js": "^0.11.18",
+    "@types/react-draft-wysiwyg": "^1.13.8",
     "axios": "1.6.5",
+    "draft-js": "^0.11.7",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
     "next": "14.1.0",
+    "next-connect": "^1.0.0",
     "react": "18",
     "react-dom": "18",
+    "react-draft-wysiwyg": "^1.15.0",
+    "react-slate": "^0.5.1",
+    "swr": "^2.2.5",
     "zod": "3.22.4",
     "zustand": "^4.5.0"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/multer": "^1.4.11",
     "@types/node": "20",
     "@types/react": "18",
     "@types/react-dom": "18",

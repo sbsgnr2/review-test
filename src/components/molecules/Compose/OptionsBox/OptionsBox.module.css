@@ -1,0 +1,12 @@
+.optionsBox {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr;
+  border: solid 1px var(--border-color);
+  border-top: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-sizing: border-box;
+}

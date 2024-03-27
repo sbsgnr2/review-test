@@ -23,46 +23,52 @@ export default function Table({
   fontSize,
   headerColor,
   bodyColor,
+  actualPage,
+  padding = '0',
 }: tableType) {
   const { checkedArr, handleCheckedArr, orderData, dataArr } = useTable({ data, handleOrderData })
+
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.tableContainer}>
-          <table className={styles.table} style={{ width }}>
-            <Header
-              header={header}
-              checked={checkedArr.length === data.length}
-              handleCheckedArr={handleCheckedArr}
-              tableConfig={tableConfig}
-              orderData={orderData}
-              backgroundColor={backgroundColor}
-              color={headerColor}
+      {
+        <div className={styles.container}>
+          <div className={styles.tableContainer} style={{ padding }}>
+            <table className={styles.table} style={{ width }}>
+              <Header
+                header={header}
+                checked={checkedArr.length === data?.length}
+                handleCheckedArr={handleCheckedArr}
+                tableConfig={tableConfig}
+                orderData={orderData}
+                backgroundColor={backgroundColor}
+                color={headerColor}
+              />
+              <Body
+                header={header}
+                data={dataArr}
+                handleCheckedArr={handleCheckedArr}
+                checkedArr={checkedArr}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                tableConfig={tableConfig}
+                pairBackgroundColor={pairBackgroundColor}
+                oddBackgroundColor={oddBackgroundColor}
+                fontSize={fontSize}
+                color={bodyColor}
+              />
+            </table>
+          </div>
+          {tableConfig?.withPagination && (
+            <Pagination
+              totalPages={totalPages}
+              totalResults={totalResults}
+              handlePagination={handlePagination}
+              rowsPerPage={rowsPerPage}
+              pageNumber={actualPage || 1}
             />
-            <Body
-              header={header}
-              data={dataArr}
-              handleCheckedArr={handleCheckedArr}
-              checkedArr={checkedArr}
-              handleDelete={handleDelete}
-              handleEdit={handleEdit}
-              tableConfig={tableConfig}
-              pairBackgroundColor={pairBackgroundColor}
-              oddBackgroundColor={oddBackgroundColor}
-              fontSize={fontSize}
-              color={bodyColor}
-            />
-          </table>
+          )}
         </div>
-        {tableConfig?.withPagination && (
-          <Pagination
-            totalPages={totalPages}
-            totalResults={totalResults}
-            handlePagination={handlePagination}
-            rowsPerPage={rowsPerPage}
-          />
-        )}
-      </div>
+      }
     </>
   )
 }

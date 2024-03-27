@@ -28,17 +28,17 @@ export function validateCreateLocation({
   name,
   slug,
   description,
-  monthLimit,
+  smsMonthlyLimit,
   tags,
 }: {
   name: string
   slug: string
   description: string
-  monthLimit: number
+  smsMonthlyLimit: number
   tags: string[]
 }) {
   try {
-    createLocationSchema.parse({ name, slug, description, monthLimit, tags })
+    createLocationSchema.parse({ name, slug, description, smsMonthlyLimit, tags })
     return true
   } catch (error: any) {
     return error.errors || 'Unknown error'

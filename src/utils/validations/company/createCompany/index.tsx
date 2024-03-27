@@ -15,7 +15,7 @@ export const createCompanySchema = z.object({
       message: 'The slug must contain letters, numbers and half dashes, without spaces',
     }),
   description: z.string().nullable(),
-  monthLimit: z
+  smsMonthlyLimit: z
     .number()
     .int()
     .nonnegative()
@@ -29,19 +29,19 @@ export function validateCreateCompany({
   name,
   slug,
   description,
-  monthLimit,
+  smsMonthlyLimit,
   tags,
 }: {
   name: string
   slug: string
   description: string
-  monthLimit: number
+  smsMonthlyLimit: number
   tags: string[]
 }) {
   try {
-    createCompanySchema.parse({ name, slug, description, monthLimit, tags })
+    createCompanySchema.parse({ name, slug, description, smsMonthlyLimit, tags })
     return true
   } catch (error: any) {
-    return error.errors || 'Unknown error'
+    return error.errors.map((error: any) => `${error.path}: ${error.message}`) || ['Unknown error']
   }
 }

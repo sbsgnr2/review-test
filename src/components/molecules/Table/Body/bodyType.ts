@@ -13,3 +13,5 @@ export interface bodyType {
   oddBackgroundColor?: string
   color?: string
 }
+
+export interface useBodyType { header: headerType[] }

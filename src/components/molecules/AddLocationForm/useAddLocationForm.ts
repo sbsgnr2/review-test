@@ -14,11 +14,12 @@ export function useAddLocationForm () {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const { name, slug, description, monthLimit, companyImage } = Object.fromEntries(
+    const { name, slug, description, smsMonthlyLimit, logo } = Object.fromEntries(
       new window.FormData(event.currentTarget)
     )
     const tags = refTags.current
     const company = selectedCompanyRef.current
+    
     // TODO
   }
 

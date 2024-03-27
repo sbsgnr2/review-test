@@ -1,7 +1,7 @@
 import { handleNumberType } from "@/components/molecules/Form/NumberBox/numberBoxType"
 import { ChangeEvent } from "react"
 
-export function useHandleNumber ({ value, changeValue, handleError }: handleNumberType) {
+export function useHandleNumber ({ value, changeValue, handleError, min = 0 }: handleNumberType) {
   function setValue ({ newValue } : { newValue: number }) {
     if (!isNaN(Number(newValue))) {
       changeValue({ value: newValue })
@@ -19,7 +19,9 @@ export function useHandleNumber ({ value, changeValue, handleError }: handleNumb
 
   function handleDecrement() {
     const newValue = value - 1
-    setValue({ newValue })
+    if (newValue >= min) {
+      setValue({ newValue })
+    }
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

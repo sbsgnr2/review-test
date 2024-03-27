@@ -1,6 +1,9 @@
+import { ReactNode } from "react";
+
 export interface headerType { 
   count?: number, 
-  textButton: string, 
+  textButton?: string, 
   title: string,
-  href: string
+  href?: string,
+  children?: ReactNode
 }

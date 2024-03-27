@@ -1,0 +1,1 @@
+export interface squareType { number: number }

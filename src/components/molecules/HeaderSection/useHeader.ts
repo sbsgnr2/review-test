@@ -1,9 +1,12 @@
+import { useCompanies } from "@/zustand/companies"
 import { useRouter } from "next/router"
 
-export function useHeader ({ href }: { href: string }) {
+export function useHeader ({ href }: { href?: string }) {
   const router = useRouter()
+  const { getTotal } = useCompanies()
+
   function handleClick() {
-    router.push(href)
+    href && router.push(href)
   }
-  return { handleClick }
+  return { handleClick, getTotal }
 }

@@ -11,10 +11,41 @@
 .options_list li {
   padding: 0.2rem 1rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 1rem;
+  box-sizing: border-box;
 }
 
 .options_list li:hover {
   background-color: var(--focused-color);
   color: var(--contrast-color);
+  fill: var(--contrast-color);
+}
+
+.options_list li span, .title {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.description {
+  width: 50%;
+  font-size: 0.65rem;
+}
+
+.circle {
+  width: 0.4rem !important;
+  height: 0.4rem !important;
+  border-radius: 100%;
 }

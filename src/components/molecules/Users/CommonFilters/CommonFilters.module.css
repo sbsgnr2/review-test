@@ -28,6 +28,26 @@
   font-size: 0.7rem;
 }
 
+.filters {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+}
+
+@media screen and (width <= 1033px) {
+  .filters {
+    flex-wrap: wrap;
+  }
+}
+
 @media screen and (width <= 860px) {
   .filterText {
     display: none;

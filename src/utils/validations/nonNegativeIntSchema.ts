@@ -1,7 +1,7 @@
 import * as z from 'zod'
 
 export const nonNegativeIntSchema = z.object({
-  monthLimit: z
+  smsMonthlyLimit: z
     .number()
     .int()
     .nonnegative()

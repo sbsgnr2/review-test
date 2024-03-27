@@ -2,8 +2,8 @@ import { ImageUploadType } from './ImageUploadType'
 import { ImageViewer } from './ImageViewer'
 import { useImageUpload } from './useImageUpload'
 
-export function ImageUpload({ name, alt }: ImageUploadType) {
-  const { selectedImage, handleImageChange, handleRemoveImage } = useImageUpload()
+export function ImageUpload({ name, alt, resetSignal = false }: ImageUploadType) {
+  const { selectedImage, handleImageChange, handleRemoveImage } = useImageUpload({ resetSignal })
 
   return (
     <div>

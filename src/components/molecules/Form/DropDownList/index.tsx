@@ -16,9 +16,10 @@ export function DropDownList({
   fontSize = '0.7rem',
   fontWeight = '500',
   labelColor = 'var(--second-color)',
+  borderRadius,
 }: DropDownListType) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ width }}>
       <label className={styles.label} style={{ fontWeight, fontSize, color: labelColor }}>
         {`${label}`} {required ? '* ' : ''}
       </label>
@@ -29,6 +30,7 @@ export function DropDownList({
         width={width}
         height={height}
         backgroundList={backgroundList}
+        borderRadius={borderRadius}
       />
       <InputErrorMessage error={error} />
     </div>

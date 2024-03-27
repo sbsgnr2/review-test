@@ -6,13 +6,3 @@
   align-items: center;
   box-sizing: border-box;
 }
-
-.buttons_container {
-  width: 100%;
-  height: max-content;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 1rem;
-  box-sizing: border-box;
-}

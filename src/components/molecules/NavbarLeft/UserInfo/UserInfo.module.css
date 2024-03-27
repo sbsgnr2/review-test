@@ -1,0 +1,43 @@
+.userInfo {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0 1rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px var(--soft-border-color);
+  box-sizing: border-box;
+}
+
+.userInfo p {
+  font-size: 0.7rem;
+  width: 5rem;
+  font-weight: 500;
+}
+
+.userInfo .buttonText {
+  font-weight: 600;
+}
+
+.noView, .iconMob {
+  display: none;
+}
+
+.icon, .iconMob {
+  fill: var(--primary-color);
+}
+
+@media screen and (width <= 750px) {
+  .name, .buttonText {
+    display: none;
+  }
+
+  .iconMob {
+    display: block;
+  }
+
+  .userInfo {
+    justify-content: center;
+  }
+}

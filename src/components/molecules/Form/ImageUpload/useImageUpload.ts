@@ -1,8 +1,11 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 
-export function useImageUpload () {
+export function useImageUpload ({ resetSignal }: { resetSignal: boolean }) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
-
+  useEffect(() => {
+    setSelectedImage(null)
+  }, [resetSignal])
+  
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (file) {

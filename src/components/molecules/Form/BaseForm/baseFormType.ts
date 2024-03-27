@@ -8,4 +8,6 @@ export interface baseFormType {
   handleCancel?: (event: React.MouseEvent<HTMLButtonElement>) => void
   gap?: string
   horizontalJustify?: 'center' | 'flex-start' | 'flex-end'
+  loading?: boolean
+  error?: null | string
 }

@@ -14,6 +14,8 @@ export function NumberInput({
   variant = 'standard',
   withErrorPadding = false,
   height,
+  resetSignal = false,
+  min = 0,
 }: numberInputType) {
   const {
     handleFocus,
@@ -23,7 +25,7 @@ export function NumberInput({
     handleChange,
     inputValue,
     error,
-  } = useNumberInput({ value, validationFunction, changeValue })
+  } = useNumberInput({ value, validationFunction, changeValue, resetSignal, min })
   return (
     <div className={variant === 'standard' ? styles.inputContainer : styles.outlined}>
       <input
@@ -41,6 +43,8 @@ export function NumberInput({
         }}
         disabled={disabled}
         required={required}
+        aria-label={name}
+        min={min}
       />
       <ButtonContainer handleIncrement={handleIncrement} handleDecrement={handleDecrement} />
       {error && <InputErrorMessage error={error} withErrorPadding={withErrorPadding} />}

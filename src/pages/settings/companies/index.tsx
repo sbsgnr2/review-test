@@ -5,11 +5,12 @@ import { ReactElement } from 'react'
 import { SectionTitle } from '@/components/molecules/SectionTitle'
 import { NavigationText } from '@/components/atoms/NavigationText'
 import { HeaderSection } from '@/components/molecules/HeaderSection'
-import Table from '@/components/molecules/Table'
-import { COMPANY_DATA, COMPANY_HEADER, COMPANY_TABLE_CONFIG } from '@/mocks/table'
 import { CommonFilters } from '@/components/molecules/Users/CommonFilters'
+import { userValidation } from '@/utils/functions/userValidation'
+import { getAll } from '@/services/companies/getAll'
+import { CompanyTable } from '@/components/molecules/Company/Table'
 
-export default function Companies() {
+export default function Companies({ total }: any) {
   return (
     <>
       <Head>
@@ -24,18 +25,10 @@ export default function Companies() {
           textButton='+ Add Company'
           title='Companies'
           href='/settings/companies/add-company'
+          count={total}
         />
         <CommonFilters />
-        <Table
-          header={COMPANY_HEADER}
-          data={COMPANY_DATA}
-          tableConfig={COMPANY_TABLE_CONFIG}
-          width='100%'
-          backgroundColor='transparent'
-          headerColor='var(--primary-color)'
-          handleDelete={() => {}}
-          handleEdit={() => {}}
-        />
+        <CompanyTable />
       </main>
     </>
   )
@@ -43,4 +36,10 @@ export default function Companies() {
 
 Companies.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>
+}
+
+export async function getServerSideProps(context: any) {
+  const token = context.req?.cookies?.token
+  const companies = await getAll({ page: '1', pageSize: '5', token })
+  return await userValidation({ token, extraProps: { total: companies?.data?.totalItems || 0 } })
 }

@@ -1,4 +1,4 @@
-import { Selector } from '../Selector'
+import { Selector } from '../../Selector'
 import { useHandleOpen } from '@/hooks/useHandleOpen'
 import { UserTable } from './User'
 import { ActivityTable } from './Activity'
@@ -8,7 +8,13 @@ export function FullTable() {
 
   return (
     <>
-      <Selector isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} />
+      <Selector
+        isOpen={isOpen}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+        firstOptionText='Profile'
+        secondOptionText='Activity'
+      />
       {isOpen ? <UserTable /> : <ActivityTable />}
     </>
   )

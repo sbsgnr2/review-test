@@ -1,0 +1,39 @@
+.secondColumn {
+  width: 100%;
+  height: max-content;
+  min-height: 100%;
+  background-color: var(--main-bg-color);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr;
+  grid-column-gap: 0.3rem;
+  border: solid 1px var(--soft-border-color);
+  box-sizing: border-box;
+}
+
+.secondColBody{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.secondColBody::-webkit-scrollbar {
+  width: 3px;
+}
+
+.secondColBody::-webkit-scrollbar-thumb {
+  background-color: var(--focused-color);
+  border-radius: 5px;
+}
+
+.secondColBody::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+@media screen and (width <= 1000px) {
+  .secondColBody {
+    height: 9rem;
+    height: 12rem;
+  }
+}

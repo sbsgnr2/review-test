@@ -20,3 +20,8 @@ export default function Login() {
     </>
   )
 }
+
+export async function getServerSideProps(context: any) {
+  context.res.setHeader('Set-Cookie', `token=; expires=Thu, 01 Jan 1970 00:00:00 GMT`)
+  return { props: {} }
+}

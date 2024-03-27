@@ -4,15 +4,21 @@ import styles from './Header.module.css'
 import { headerType } from './headerType'
 import { useHeader } from './useHeader'
 
-export function HeaderSection({ count = 0, textButton, title, href }: headerType) {
-  const { handleClick } = useHeader({ href })
+export function HeaderSection({ count = 0, textButton, title, href, children }: headerType) {
+  const { handleClick, getTotal } = useHeader({ href })
+
   return (
     <div className={styles.sectionTitle}>
-      <SectionTitle title={title} />
-      <p className={styles.count}>({count})</p>
-      <Button height='1.7rem' fontSize='0.8rem' onClick={handleClick}>
-        {textButton}
-      </Button>
+      <div className={styles.title}>
+        <SectionTitle title={title} />
+        <p className={styles.count}>({getTotal() || count})</p>
+        {textButton && (
+          <Button height='1.7rem' fontSize='0.8rem' onClick={handleClick} ariaLabel={textButton}>
+            {textButton}
+          </Button>
+        )}
+      </div>
+      {children}
     </div>
   )
 }

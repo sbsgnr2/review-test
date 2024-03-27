@@ -4,6 +4,7 @@ import { DefaultLayout } from '@/components/layouts/DefaultLayout'
 import { ReactElement } from 'react'
 import Review from '@/components/organisms/Review'
 import { SectionTitle } from '@/components/molecules/SectionTitle'
+import { userValidation } from '@/utils/functions/userValidation'
 
 const generativeText = `
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac tortor sed velit luctus elementum. Nulla facilisi.
@@ -37,4 +38,9 @@ export default function ReviewsTest() {
 
 ReviewsTest.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>
+}
+
+export async function getServerSideProps(context: any) {
+  const token = context.req?.cookies?.token
+  return await userValidation({ token })
 }

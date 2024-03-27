@@ -16,6 +16,7 @@ export function TextBox({
   validationFunction = () => {
     return null
   },
+  onClick = () => {},
   disabled = false,
   required = true,
   name,
@@ -31,6 +32,7 @@ export function TextBox({
   fontSize,
   fontWeight,
   labelColor = 'var(--primary-color)',
+  positionTop = undefined,
 }: textBoxtype) {
   const { focused, handleFocus, handleBlur, inputValue, handleChange, error } = useTextBox({
     changeValue,
@@ -42,7 +44,7 @@ export function TextBox({
       className={
         ['outlined'].includes(variant)
           ? styles.outlined
-          : ['border_focused_outlined'].includes(variant)
+          : ['border_focused_outlined', 'rounded_outlined'].includes(variant)
           ? styles.borderOutlined
           : styles.textBoxContainer
       }
@@ -62,20 +64,24 @@ export function TextBox({
         fontSize={fontSize}
         fontWeight={fontWeight}
         color={labelColor}
+        positionTop={positionTop}
       />
       <input
         name={name}
+        id={name}
         type={type}
         value={value}
         onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onKeyDown={onKeyDown}
+        onClick={onClick}
         className={styles.input}
         style={{
           borderColor: error ? 'var(--error-color)' : undefined,
           height,
           fontSize: inputFontSize,
+          borderRadius: ['rounded_outlined'].includes(variant) ? '0.3rem' : 0,
         }}
         disabled={disabled}
         placeholder={placeholder}

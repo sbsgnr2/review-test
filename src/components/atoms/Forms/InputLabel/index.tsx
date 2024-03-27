@@ -16,18 +16,28 @@ export function InputLabel({
     <label
       style={{
         top:
-          focused || value || ['focused_outlined', 'border_focused_outlined'].includes(variant)
+          focused ||
+          value ||
+          ['focused_outlined', 'border_focused_outlined', 'rounded_outlined_focus'].includes(
+            variant
+          )
             ? '-0.75rem'
             : positionTop,
         fontSize:
-          focused || value || ['focused_outlined'].includes(variant)
+          focused ||
+          value ||
+          ['focused_outlined', 'rounded_outlined_focus', 'rounded_outlined'].includes(variant)
             ? fontSize
             : ['border_focused_outlined'].includes(variant)
             ? '0.7rem'
             : '0.9rem',
         fontWeight,
         color: ['border_focused_outlined'].includes(variant) ? 'var(--second-color)' : color,
-        left: ['border_focused_outlined'].includes(variant) ? '0' : '0.625rem',
+        left: ['border_focused_outlined', 'rounded_outlined_focus', 'rounded_outlined'].includes(
+          variant
+        )
+          ? '0'
+          : '0.625rem',
       }}
       className={styles.label}
     >

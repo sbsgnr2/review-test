@@ -1,4 +1,4 @@
-export interface OptionType { value: string; label: string }
+export interface OptionType { value: string; label: string; color?: string}
 
 export interface SelectInputType {
   options: OptionType[]
@@ -7,6 +7,7 @@ export interface SelectInputType {
   width?: string,
   height?: string,
   backgroundList?: string
+  borderRadius?: string
 }
 
 export interface SelectInputHookType {

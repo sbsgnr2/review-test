@@ -1,0 +1,19 @@
+.buttonDesc {
+  width: 100%;
+  height: max-content;
+  align-items: center;
+  display: flex;
+  gap: 3px;
+  box-sizing: border-box;
+}
+
+.enableSMSText{
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 0.75rem;
+}
+
+.blackWord {
+  color: var(--second-color);
+  font-size: 0.8rem;
+}

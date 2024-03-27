@@ -6,3 +6,10 @@ export function getLabelByOptionValue({ value, options }: { value: string, optio
     options.find((option: OptionType) => option.value === value)?.label || DEFAULT_LABEL
   return label
 }
+
+export function getColor({ value, options }: { value: string, options: OptionType[] }): string|null {
+  const DEFAULT_COLOR = null
+  const color =
+    options.find((option: OptionType) => option.value === value)?.color || DEFAULT_COLOR
+  return color
+}

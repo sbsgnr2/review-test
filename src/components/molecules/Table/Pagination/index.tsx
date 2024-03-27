@@ -12,6 +12,7 @@ export function Pagination({
   totalPages = 1,
   totalResults = 1,
   rowsPerPage = 5,
+  pageNumber = 1,
 }: paginationType) {
   const {
     page,
@@ -22,7 +23,7 @@ export function Pagination({
     getFinalIntervalRow,
     getInitialIntervalRow,
     handlePage,
-  } = usePagination({ handlePagination, totalPages, totalResults, rowsPerPage })
+  } = usePagination({ handlePagination, totalPages, totalResults, rowsPerPage, pageNumber })
   return (
     <>
       {totalPages > 0 && (
@@ -38,7 +39,7 @@ export function Pagination({
             <IconButton onClick={prevPage} width='max-content'>
               <ChevronLeftIcon />
             </IconButton>
-            <input type='number' name='page' value={page} onChange={handlePage} />
+            <input type='number' name='page' value={page} onChange={handlePage} aria-label='page' />
             <IconButton onClick={nextPage} width='max-content'>
               <ChevronRightIcon />
             </IconButton>

@@ -23,4 +23,6 @@ export interface MultiplesChoicesType {
   labelColor?: string
   margin?: string
   padding?: string
+  subtitle?: string
+  buttonText?: string
 }

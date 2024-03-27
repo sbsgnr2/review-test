@@ -1,0 +1,6 @@
+.description {
+  width: 100%;
+  height: max-content;
+  font-size: 0.85rem;
+  color: var(--second-color);
+}

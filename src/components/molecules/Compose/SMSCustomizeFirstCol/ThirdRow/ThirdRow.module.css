@@ -1,0 +1,49 @@
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.titleWithToggle {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-sizing: border-box;
+}
+
+.secondaryTitle {
+  font-weight: 700;
+  font-size: 0.65rem;
+  color: var(--primary-color);
+}
+
+.paragraph {
+  font-size: 0.8rem;
+  color: var(--second-color);
+}
+
+.numberCont {
+  width: max-content;
+  font-size: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.separator {
+  height: 2rem;
+  width: 1px;
+  border: solid 1px var(--border-color);
+  box-sizing: border-box;
+}
+
+.remindersDataNumbers {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+}

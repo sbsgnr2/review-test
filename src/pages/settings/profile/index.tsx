@@ -9,6 +9,7 @@ import { ProfileForm } from '@/components/molecules/ProfileForm'
 import { ResetPasswordForm } from '@/components/molecules/ResetPasswordForm'
 import { OptionsHandle } from '@/components/molecules/OptionsHandle'
 import { useSelect } from '@/components/molecules/Settings/useSelect'
+import { userValidation } from '@/utils/functions/userValidation'
 
 export default function Settings() {
   const { options, selectedOption, handleSelected } = useSelect()
@@ -36,4 +37,9 @@ export default function Settings() {
 
 Settings.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>
+}
+
+export async function getServerSideProps(context: any) {
+  const token = context.req?.cookies?.token
+  return await userValidation({ token })
 }

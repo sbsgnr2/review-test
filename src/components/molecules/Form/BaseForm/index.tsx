@@ -1,6 +1,7 @@
 import styles from './BaseForm.module.css'
-import { Button } from '@/components/molecules/Form/Button'
 import { baseFormType } from './baseFormType'
+import { SubmitError } from '../SubmitError'
+import { BaseFormButtons } from '../BaseFormButtons'
 
 export function BaseForm({
   children,
@@ -10,6 +11,8 @@ export function BaseForm({
   handleCancel,
   gap = '0',
   horizontalJustify = 'center',
+  loading = false,
+  error = null,
 }: baseFormType) {
   return (
     <form
@@ -18,29 +21,14 @@ export function BaseForm({
       style={{ gap, alignItems: horizontalJustify }}
     >
       {children}
-      <div className={styles.buttons_container} style={{ justifyContent: horizontalJustify }}>
-        {handleCancel && (
-          <Button
-            width='max-content'
-            variant='outlined'
-            type='button'
-            onClick={handleCancel}
-            height='1.8rem'
-            fontSize='0.8rem'
-          >
-            {cancelTitle}
-          </Button>
-        )}
-        <Button
-          width='max-content'
-          variant='contained'
-          type='submit'
-          height='1.8rem'
-          fontSize='0.8rem'
-        >
-          {submitTitle}
-        </Button>
-      </div>
+      <SubmitError error={error} />
+      <BaseFormButtons
+        handleCancel={handleCancel}
+        submitTitle={submitTitle}
+        loading={loading}
+        cancelTitle={cancelTitle}
+        horizontalJustify={horizontalJustify}
+      />
     </form>
   )
 }

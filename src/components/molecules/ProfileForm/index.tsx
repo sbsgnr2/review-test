@@ -61,7 +61,7 @@ export function ProfileForm() {
       <TextBox
         label='Phone'
         name='phone'
-        required={true}
+        required={false}
         variant='border_focused_outlined'
         withErrorPadding={false}
         placeholder='Enter Your Phone Number'

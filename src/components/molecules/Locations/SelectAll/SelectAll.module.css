@@ -1,0 +1,10 @@
+.selectAll {
+  width: 100%;
+  height: 100%;
+  padding: 0.2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px var(--soft-border-color);
+  box-sizing: border-box;
+}

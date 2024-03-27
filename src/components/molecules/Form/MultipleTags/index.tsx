@@ -4,49 +4,56 @@ import { useMultipleTags } from './useMultipleTags'
 import styles from './MultipleTags.module.css'
 import { Tag } from './Tag'
 import React from 'react'
+import { multipleTagsType } from './multipleTagsType'
 
 export function MultipleTags({
   onTagsChange,
   maxWidth = '100%',
-}: {
-  onTagsChange: ({ tags }: { tags: string[] }) => void
-  maxWidth?: string
-}) {
+  resetSignal = false,
+  color = 'var(--second-color)',
+  fontSize,
+  fontWeight = '500',
+  label = 'Tags',
+}: multipleTagsType) {
   const { handleInputChange, handleInputKeyDown, handleRemoveTag, addTag, tags, tagInput } =
     useMultipleTags({
       onTagsChange,
+      resetSignal,
     })
-
   return (
     <div className={styles.container}>
       <div className={styles.inputContainer}>
         <TextBox
-          label='Tags'
+          fontSize={fontSize}
+          fontWeight={fontWeight}
+          label={label}
           name='tag'
           required={false}
           value={tagInput}
-          variant='border_focused_outlined'
+          variant='rounded_outlined_focus'
           withErrorPadding={false}
           placeholder='your-tag'
           maxWidth={maxWidth}
           type='text'
           changeValue={handleInputChange}
           onKeyDown={handleInputKeyDown}
-          fontWeight={'500'}
           height='1.9rem'
           width='100%'
           validationFunction={() => {
             return null
           }}
+          labelColor={color}
         />
         <Button
           onClick={addTag}
-          width='4.1rem'
+          width='max-content'
           fontSize='0.8rem'
           padding='0 0.5rem'
           height='1.9rem'
+          type='button'
+          ariaLabel='Add'
         >
-          Add Tag
+          Add
         </Button>
       </div>
       <div className={styles.tagsContainer}>

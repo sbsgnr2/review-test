@@ -6,6 +6,7 @@ import { ReactElement } from 'react'
 import { NavigationText } from '@/components/atoms/NavigationText'
 import { HeaderSection } from '@/components/molecules/HeaderSection'
 import { FullTable } from '@/components/molecules/Users/FullTable'
+import { userValidation } from '@/utils/functions/userValidation'
 
 export default function Settings() {
   return (
@@ -17,7 +18,11 @@ export default function Settings() {
       </Head>
       <main className={stylesSetting.main}>
         <NavigationText text='< Back to Account and Settings' href='/settings' />
-        <HeaderSection textButton='+ Add User' title='Users' href='/settings/users/add-user' />
+        <HeaderSection
+          textButton='+ Add User'
+          title='Users'
+          href='/settings/users/add-user/create-profile'
+        />
         <FullTable />
       </main>
     </>
@@ -26,4 +31,9 @@ export default function Settings() {
 
 Settings.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>
+}
+
+export async function getServerSideProps(context: any) {
+  const token = context.req?.cookies?.token
+  return await userValidation({ token })
 }

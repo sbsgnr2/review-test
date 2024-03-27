@@ -1,0 +1,17 @@
+.emailData {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.title {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--second-color);
+}

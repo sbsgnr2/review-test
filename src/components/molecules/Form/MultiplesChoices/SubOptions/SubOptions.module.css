@@ -1,12 +1,13 @@
 .subtitle {
   width: max-content;
   font-weight: 400;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   margin-bottom: 0.4rem;
-  color: var(--light-color);
+  color: var(--focused-color);
   padding-bottom: 1.2px;
   padding-right: 0.5rem;
-  border-bottom: solid 1px var(--border-color);
+  border-bottom: solid 1px var(--focused-color);
+  font-weight: 600;
 }
 
 .multiplesChoicesContainer{

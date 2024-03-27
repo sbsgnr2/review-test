@@ -1,8 +1,8 @@
 import styles from './selectedValue.module.css'
 import { ArrowDownIcon } from '@/components/atoms/Icons/arrow_down_icon'
 import { ArrowUpIcon } from '@/components/atoms/Icons/arrow_up_icon'
-import { getLabelByOptionValue } from '@/utils/functions/getLabelByOptionValue'
 import { SelectedValueType } from './SelectedValueType'
+import { useSelectedValue } from './useSelectedValue'
 
 export function SelectedValue({
   handleToggle,
@@ -11,7 +11,9 @@ export function SelectedValue({
   value,
   isOpen,
   variant = 'standard',
+  borderRadius = '0',
 }: SelectedValueType) {
+  const { color, labelText } = useSelectedValue({ value, options })
   return (
     <div
       className={styles.selected_option}
@@ -19,10 +21,14 @@ export function SelectedValue({
         height,
         border: variant !== 'underline' ? 'solid 1px var(--border-color)' : 'undefined',
         borderBottom: !isOpen ? 'solid 1px var(--border-color)' : '2px solid var(--focused-color)',
+        borderRadius: borderRadius ? borderRadius : undefined,
       }}
       onClick={handleToggle}
     >
-      <p>{getLabelByOptionValue({ value, options })}</p>
+      <div className={styles.selected}>
+        {color && <span className={styles.circle} style={{ backgroundColor: color }}></span>}
+        <p>{labelText}</p>
+      </div>
       {!isOpen ? <ArrowDownIcon /> : <ArrowUpIcon />}
     </div>
   )

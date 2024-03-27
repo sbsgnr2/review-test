@@ -8,6 +8,7 @@ import { HeaderSection } from '@/components/molecules/HeaderSection'
 import Table from '@/components/molecules/Table'
 import { LOCATION_DATA, LOCATION_HEADER, LOCATION_TABLE_CONFIG } from '@/mocks/table'
 import { CommonFilters } from '@/components/molecules/Users/CommonFilters'
+import { userValidation } from '@/utils/functions/userValidation'
 
 export default function Locations() {
   return (
@@ -43,4 +44,9 @@ export default function Locations() {
 
 Locations.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>
+}
+
+export async function getServerSideProps(context: any) {
+  const token = context.req?.cookies?.token
+  return await userValidation({ token })
 }

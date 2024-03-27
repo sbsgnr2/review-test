@@ -1,0 +1,14 @@
+.secondaryTitle {
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: var(--second-color);
+}
+
+.editorContent {
+  width: 100%;
+  height: max-content;
+  border: solid 1px #f1f1f1;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+

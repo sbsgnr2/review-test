@@ -11,18 +11,20 @@ export function SelectInput({
   value,
   width,
   backgroundList,
+  borderRadius,
 }: SelectInputType) {
-  const { isOpen, handleToggle, handleSelect } = useSelectInput({
+  const { isOpen, handleToggle, handleSelect, ref } = useSelectInput({
     onChange,
   })
   return (
-    <div className={styles.custom_dropdown} style={{ width }}>
+    <div className={styles.custom_dropdown} style={{ width }} ref={ref}>
       <SelectedValue
         handleToggle={handleToggle}
         isOpen={isOpen}
         height={height}
         value={value}
         options={options}
+        borderRadius={borderRadius}
       />
       {isOpen && (
         <OptionsList

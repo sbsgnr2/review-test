@@ -8,6 +8,7 @@ export function CheckBox({
   label = '',
   checkLeft = false,
   withCheckedState = false,
+  arialLabel = 'option',
 }: CheckBoxType) {
   const { handleChecked, checkedState } = useCheckbox({ handleChange })
   return (
@@ -18,6 +19,7 @@ export function CheckBox({
         checked={withCheckedState ? checkedState : checked}
         onChange={handleChecked}
         className={styles.input}
+        aria-label={label?.length > 0 ? label : arialLabel}
       />
       {checkLeft && label}
     </label>

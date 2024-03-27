@@ -1,10 +1,14 @@
 import { orderArrayOfObject } from "@/utils/functions/orderArrayOfObject"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { objectDataType, useTableType } from "./tableType"
 
 export function useTable ({ data, handleOrderData }: useTableType) {
   const [checkedArr, setCheckedArr] = useState<string[]>([])
   const [dataArr, setDataArr] = useState<objectDataType[]>(data)
+
+  useEffect(() => {
+    setDataArr(data)
+  },[data])
 
   function handleCheckedArr({ key }: {key: string}) {
     const index = checkedArr.indexOf(key)

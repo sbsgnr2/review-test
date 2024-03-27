@@ -13,6 +13,7 @@ export interface numberBoxType {
   height?: string
   variant?: 'standard' | 'outlined' | 'border_focused_outlined'
   withErrorPadding?: boolean
+  resetSignal?: boolean
 }
 
 export interface numberInputHookType {
@@ -24,4 +25,5 @@ export interface handleNumberType {
   value: number, 
   changeValue: ({ value }: { value: number }) => void
   handleError: any
+  min?: number
 }

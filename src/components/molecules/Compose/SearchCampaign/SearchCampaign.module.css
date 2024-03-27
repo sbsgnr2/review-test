@@ -1,0 +1,16 @@
+.searchCampaign {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  column-gap: 1rem;
+  grid-column-gap: 1rem;
+  align-items: flex-end;
+  margin-top: 1rem;
+  box-sizing: border-box;
+}
+
+@media screen and (width <= 1200px) {
+  .searchCampaign {
+    max-width: 35rem;
+  }
+}

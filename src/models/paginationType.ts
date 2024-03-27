@@ -3,4 +3,5 @@ export interface paginationType {
   totalPages: number
   rowsPerPage: number
   totalResults: number
+  pageNumber: number
 }

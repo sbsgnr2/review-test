@@ -1,4 +1,13 @@
-export interface OptionType { value: string; label: string }
+import { ReactElement } from "react";
+
+export interface OptionType { 
+  value: string; 
+  label: string, 
+  description?: string, 
+  icon?: ReactElement, 
+  color?: string
+  altEl?: ReactElement
+}
 
 export interface DropDownListType {
   options: OptionType[]
@@ -13,4 +22,5 @@ export interface DropDownListType {
   fontSize?: string
   fontWeight?: string
   labelColor?: string
+  borderRadius?: string
 }

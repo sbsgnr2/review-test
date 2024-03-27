@@ -10,4 +10,8 @@ export interface buttonType extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'text' | 'contained' | 'outlined'
   padding?: string
   withBorderRadius?: boolean
+  borderRadius?: string
+  loading?: boolean
+  ariaLabel?: string
+  backgroundColor?: string
 }

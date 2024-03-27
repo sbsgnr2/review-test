@@ -7,6 +7,7 @@ import React from 'react'
 import { sectionCardType } from '@/models/sectionCardType'
 import MenuSectionCard from '@/components/molecules/MenuSectionCard'
 import { SETTINGS_CONFIG } from '../../components/molecules/Settings/config'
+import { userValidation } from '@/utils/functions/userValidation'
 
 export default function Settings() {
   return (
@@ -34,4 +35,9 @@ export default function Settings() {
 
 Settings.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>
+}
+
+export async function getServerSideProps(context: any) {
+  const token = context.req?.cookies?.token
+  return await userValidation({ token })
 }

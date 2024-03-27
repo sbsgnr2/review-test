@@ -1,0 +1,23 @@
+.toastContainer {
+  width: 15rem;
+  max-width: 90%;
+  height: max-content;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 0.2rem;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  animation: slideIn 0.65s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    top: 80vh;
+  }
+  to {
+    top: 20px;
+  }
+}

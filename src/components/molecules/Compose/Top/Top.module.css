@@ -1,0 +1,36 @@
+.top {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.83rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.topLeft, .topRight {
+  width: 100%;
+  height: max-content;
+  border: solid 1px var(--border-color);
+  border-right: none;
+  border-left: none;
+  text-align: center;
+  border-radius: 5px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.selected {
+  border: none;
+  border-top: solid 3px var(--focused-color);
+  background-color: var(--main-bg-color);
+  border-bottom: none;
+}
+
+.top p {
+  padding: 0.3rem 0;
+}

@@ -1,3 +1,4 @@
+import { Spinner } from '@/components/atoms/Spinner'
 import styles from './Button.module.css'
 import { buttonType } from '@/components/molecules/Form/Button/buttonType'
 
@@ -11,6 +12,10 @@ export function Button({
   hoverColor = 'var(--contained-button-bg-hover-color)',
   padding = '0.5rem 1rem',
   withBorderRadius = true,
+  borderRadius = '0.5rem',
+  loading = false,
+  ariaLabel = 'button',
+  backgroundColor = 'transparent',
   ...props
 }: buttonType) {
   return (
@@ -22,9 +27,9 @@ export function Button({
           height: height,
           fontSize: fontSize,
           backgroundColor:
-            variant === 'contained' ? 'var(--contained-button-bg-color)' : 'transparent',
+            variant === 'contained' ? 'var(--contained-button-bg-color)' : backgroundColor,
           borderColor: variant === 'text' ? 'transparent' : 'var(--contained-button-border-color)',
-          borderRadius: withBorderRadius ? '0.5rem' : '0',
+          borderRadius: withBorderRadius ? borderRadius : '0',
           color:
             variant === 'text'
               ? color
@@ -39,9 +44,18 @@ export function Button({
               : 'var(--outlined-button-color)',
           padding,
         }}
+        disabled={loading}
+        aria-label={ariaLabel}
         {...props}
       >
-        {children}
+        {loading ? (
+          <div className={styles.spinnerCont}>
+            <Spinner />
+            <span>Loading ...</span>
+          </div>
+        ) : (
+          children
+        )}
       </button>
       <style jsx>{`
         button:hover {

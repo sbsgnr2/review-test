@@ -24,3 +24,9 @@
 .outlined textarea:focus {
   border: 2px solid var(--focused-color);
 }
+
+.subtitle {
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: var(--second-color);
+}

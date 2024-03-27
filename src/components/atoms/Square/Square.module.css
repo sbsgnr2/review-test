@@ -1,0 +1,16 @@
+.square {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1.5px var(--focused-color);
+  color: var(--focused-color);
+  cursor: pointer;
+}
+
+.square:hover {
+  background-color: var(--focused-color);
+  color: var(--contrast-color);
+}

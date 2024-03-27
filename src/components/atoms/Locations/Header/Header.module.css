@@ -1,0 +1,12 @@
+.header {
+  width: 100%;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--contrast-color);
+  background-color: #666666;
+  border-bottom: solid 1px var(--soft-border-color);
+  padding: 0.3rem 1rem;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}

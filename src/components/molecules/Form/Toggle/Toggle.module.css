@@ -1,0 +1,9 @@
+.iconContainer {
+  width: max-content;
+  height: max-content;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}

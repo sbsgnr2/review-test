@@ -13,3 +13,20 @@
   color: var(--second-color);
   font-weight: 400;
 }
+
+.title {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (width <= 1070px) {
+  .sectionTitle {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

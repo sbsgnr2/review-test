@@ -1,0 +1,27 @@
+.toast {
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.toastVisible {
+  opacity: 1;
+}
+
+.toastMessage {
+  width: 15rem;
+  font-size: 0.85rem;
+  color: var(--contrast-color);
+}
+
+.top {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  fill: var(--contrast-color);
+}

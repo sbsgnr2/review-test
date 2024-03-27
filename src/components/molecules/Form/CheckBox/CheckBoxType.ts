@@ -6,6 +6,7 @@ export interface CheckBoxType {
   label?: string
   checkLeft?: boolean
   withCheckedState?: boolean
+  arialLabel?: string
 }
 
 export interface useCheckboxType { handleChange: (event: ChangeEvent<HTMLInputElement>) => void }

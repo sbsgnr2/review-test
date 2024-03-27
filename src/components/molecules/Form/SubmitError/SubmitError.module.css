@@ -1,0 +1,10 @@
+.error {
+  width: max-content;
+  max-width: 100%;
+  height: max-content;
+  color: var(--error-color);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-sizing: border-box;
+}

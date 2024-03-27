@@ -6,8 +6,13 @@ export interface headerType {
 }
 
 export interface objectDataType {
-  [key: string]: string | number ;
+  [key: string]: string | number | string[] ;
   id: string;
+}
+
+export interface selectedsEl {
+  field: string
+  element: any
 }
 
 export interface tableConfigType {
@@ -16,7 +21,11 @@ export interface tableConfigType {
   withDelete: boolean,
   withEdit: boolean,
   withPagination: boolean,
-  colorRows: string[]
+  colorRows: string[],
+  multipleRows: string[],
+  starRows: string[],
+  redirectButtons: string[],
+  selecteds: selectedsEl[]
 }
 
 export interface tableType {
@@ -37,6 +46,8 @@ export interface tableType {
   fontSize?: string
   headerColor?: string
   bodyColor?: string
+  actualPage?: number
+  padding?: string
 }
 
 export interface useTableType { data: objectDataType[], handleOrderData?: ({key, isAsc}: {key: string, isAsc: boolean}) => objectDataType[] }

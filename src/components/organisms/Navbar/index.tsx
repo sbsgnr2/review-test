@@ -1,22 +1,26 @@
-import styles from './Navbar.module.css'
-import { LogoContainer } from '../../molecules/NavBar/LogoContainer'
-import { Menu } from '../../molecules/NavBar/Menu'
-import { Settings } from '../../molecules/NavBar/Settings'
-import { UserInfo } from '../../molecules/NavBar/UserInfo'
 import { useHandleOpen } from '@/hooks/useHandleOpen'
-import { HiddenButton } from '../../molecules/NavBar/HideButton'
+import styles from './Navbar.module.css'
+import { LogoContainer } from '@/components/molecules/NavbarLeft/LogoContainer'
+import { Menu } from '@/components/molecules/NavbarLeft/Menu'
+import { Settings } from '@/components/molecules/NavbarLeft/Settings'
+import { UserInfo } from '@/components/molecules/NavbarLeft/UserInfo'
+import { HiddenButton } from '@/components/molecules/NavbarLeft/HideButton'
 
 export function Navbar() {
   const { isOpen, handleToggle } = useHandleOpen({ initialValue: true })
   return (
     <nav className={`${styles.nav} ${styles.isClose}`}>
-      <div className={`${isOpen ? styles.logoCont : styles.noDisplay}`}>
-        <LogoContainer />
+      <div>
+        <span style={{ display: isOpen ? 'block' : 'none' }} className={styles.bigLogo}>
+          <span>
+            <LogoContainer />
+          </span>
+        </span>
+        <span style={{ display: isOpen ? 'none' : 'block' }} className={styles.smallLogo}></span>
       </div>
-      <div className={`${isOpen ? styles.mobile : undefined}`}></div>
       <Menu isOpen={isOpen} />
       <Settings isOpen={isOpen} />
-      <UserInfo imageUrl='/images/unnamed.png' name='María' surname='Figueredo' isOpen={isOpen} />
+      <UserInfo isOpen={isOpen} />
       <HiddenButton handleToggle={handleToggle} isOpen={isOpen} />
     </nav>
   )

@@ -1,7 +1,7 @@
 import { ChangeEvent } from "react"
 
 export interface TextAreaType {
-  label: string
+  label?: string
   value?: string
   changeValue?: (event: ChangeEvent<HTMLTextAreaElement>) => void
   placeholder?: string
@@ -9,7 +9,7 @@ export interface TextAreaType {
   cols?: number
   disabled?: boolean
   required?: boolean
-  variant?: 'standard' | 'outlined' | 'focused_outlined' | 'border_focused_outlined'
+  variant?: 'standard' | 'outlined' | 'focused_outlined' | 'border_focused_outlined' | 'rounded_outlined_focus'
   inputFontSize?: string
   withErrorPadding?: boolean
   validationFunction?: (value: string) => string | null | Promise<string | null>
@@ -23,6 +23,7 @@ export interface TextAreaType {
   fontWeight?: string
   labelColor?: string
   maxWidth?: string
+  subtitle?: string
 }
 
 export interface useTextAreaType {

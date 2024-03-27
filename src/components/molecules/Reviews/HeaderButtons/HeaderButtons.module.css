@@ -1,0 +1,27 @@
+.buttons {
+  width: 100%;
+  height: max-content;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 0.5rem;
+  box-sizing: border-box;
+}
+
+.bold {
+  font-weight: 600;
+  padding-left: 0.25rem;
+  font-size: 0.7rem;
+}
+
+.paragraph {
+  white-space: nowrap;
+}
+
+@media screen and (width <= 930px) {
+  .buttons {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+}

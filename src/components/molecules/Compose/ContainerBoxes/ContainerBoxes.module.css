@@ -1,0 +1,22 @@
+.containerBoxes {
+  width: 100%;
+  max-width: 72rem;
+  height: max-content;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 2rem;
+  margin-top: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+@media screen and (width <= 1200px) {
+  .containerBoxes {
+    max-width: 30rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+}

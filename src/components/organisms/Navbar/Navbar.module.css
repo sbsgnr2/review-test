@@ -1,12 +1,13 @@
 .nav, .isClose {
-  height: 100%;
+  height: 100vh;
   display: grid;
-  grid-template-rows: max-content max-content 1fr;
+  grid-template-rows: max-content 1fr max-content max-content;
   grid-template-columns: 1fr;
   grid-row-gap: 1rem;
   padding-bottom: 1rem;
   border-right: solid 1px var(--soft-border-color);
   background-color: var(--main-bg-color);
+  overflow-y: auto;
 }
 
 .noDisplay {
@@ -27,6 +28,10 @@
   }
 
   .logoCont {
+    display: none;
+  }
+
+  .bigLogo span {
     display: none;
   }
 }

@@ -3,6 +3,7 @@ import styles from '@/styles/Home.module.css'
 import { DefaultLayout } from '@/components/layouts/DefaultLayout'
 import { ReactElement } from 'react'
 import { SectionTitle } from '@/components/molecules/SectionTitle'
+import { userValidation } from '@/utils/functions/userValidation'
 
 export default function LocationPerformance() {
   return (
@@ -21,4 +22,9 @@ export default function LocationPerformance() {
 
 LocationPerformance.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>
+}
+
+export async function getServerSideProps(context: any) {
+  const token = context.req?.cookies?.token
+  return await userValidation({ token })
 }

@@ -20,6 +20,7 @@ export function OptionsHandle({ options, selectedOption, handleSelected }: Optio
               fontSize='0.7rem'
               padding='0.5rem 0'
               onClick={() => handleSelected(option)}
+              ariaLabel={option}
             >
               <p>{option}</p>
             </Button>

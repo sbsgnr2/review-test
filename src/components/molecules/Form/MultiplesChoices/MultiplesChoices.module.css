@@ -3,3 +3,16 @@
   margin-bottom: 0.225rem;
   text-transform: uppercase;
 }
+
+.subtitle {
+  max-width: 100%;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  margin-bottom: 1rem;
+  margin: 1rem 0;
+  color: var(--second-color);
+}
+
+.button {
+  margin-bottom: 1rem;
+}

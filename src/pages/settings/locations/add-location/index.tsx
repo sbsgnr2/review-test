@@ -5,6 +5,7 @@ import { ReactElement } from 'react'
 import { SectionTitle } from '@/components/molecules/SectionTitle'
 import { AddLocationForm } from '@/components/molecules/AddLocationForm'
 import { NavigationText } from '@/components/atoms/NavigationText'
+import { userValidation } from '@/utils/functions/userValidation'
 
 export default function AddLocation() {
   return (
@@ -25,4 +26,9 @@ export default function AddLocation() {
 
 AddLocation.getLayout = function getLayout(page: ReactElement) {
   return <DefaultLayout>{page}</DefaultLayout>
+}
+
+export async function getServerSideProps(context: any) {
+  const token = context.req?.cookies?.token
+  return await userValidation({ token })
 }
