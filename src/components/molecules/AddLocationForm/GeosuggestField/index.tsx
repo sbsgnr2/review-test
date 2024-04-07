@@ -1,4 +1,4 @@
-import Geosuggest from 'react-geosuggest'
+import Geosuggest from '@ubilabs/react-geosuggest'
 import styles from './GeosuggestField.module.css'
 import { useGeosuggestField } from './useGeosuggestField'
 import { GeoSuggestChilds } from './GeoSuggestChilds'
