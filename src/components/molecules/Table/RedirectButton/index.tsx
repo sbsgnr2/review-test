@@ -9,7 +9,7 @@ export function RedirectButton({ element, redirect }: redirectButtonType) {
       width='max-content'
       padding='0 1rem'
       ariaLabel='Redirect'
-      onClick={() => redirect({ href: element as string })}
+      onClick={() => element && redirect({ href: element as string })}
     >
       <OpenViewIcon />
       <p style={{ marginLeft: '0.3rem' }}>View Source</p>

@@ -1,14 +1,14 @@
 import { ChangeEvent, useState, KeyboardEvent, useEffect } from "react"
 import { useMultipleTagsType } from "./multipleTagsType"
 
-export function useMultipleTags ({ onTagsChange, resetSignal }: useMultipleTagsType) {
+export function useMultipleTags ({ onTagsChange, resetSignal, defaultValues }: useMultipleTagsType) {
   const [tagInput, setTagInput] = useState<string>('')
   const [tags, setTags] = useState<string[]>([])
 
   useEffect(() => {
-    setTags([])
+    setTags(defaultValues || [])
     setTagInput('')
-  }, [resetSignal])
+  }, [resetSignal, defaultValues])
   
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     setTagInput(event.target.value)

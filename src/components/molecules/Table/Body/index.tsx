@@ -57,11 +57,14 @@ export default function Body({
                       {tableConfig.starRows.includes(key) && typeof element[key] === 'number' ? (
                         <StarRow rating={Number(element[key])} />
                       ) : tableConfig.redirectButtons.includes(key) ? (
-                        <RedirectButton element={String(element[key])} redirect={redirect} />
+                        <RedirectButton
+                          element={element[key] ? String(element[key]) : null}
+                          redirect={redirect}
+                        />
                       ) : tableConfig.selecteds.some((select: any) => select.field === key) ? (
                         tableConfig.selecteds
                           .find((select: any) => select.field === key)
-                          ?.element(element[key])
+                          ?.element(element[key], element.id)
                       ) : (
                         <>
                           {tableConfig.multipleRows.includes(key) && Array.isArray(element[key]) ? (

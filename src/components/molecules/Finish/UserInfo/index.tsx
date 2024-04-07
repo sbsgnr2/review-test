@@ -1,10 +1,10 @@
 import styles from './UserInfo.module.css'
 
-export function UserInfo() {
+export function UserInfo({ user }: any) {
   return (
     <div className={styles.userInfo}>
-      <p className={styles.name}>Maria Figueredo</p>
-      <p className={styles.email}>mariafigueredo@gmail.com</p>
+      <p className={styles.name}>{`${user?.name} ${user?.surname}`}</p>
+      <p className={styles.email}>{user?.email}</p>
     </div>
   )
 }

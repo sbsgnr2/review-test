@@ -1,0 +1,10 @@
+.addressInfo {
+  width: 100%;
+  max-width: 30rem;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+  box-sizing: border-box;
+}

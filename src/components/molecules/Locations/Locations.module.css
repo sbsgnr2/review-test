@@ -4,3 +4,11 @@
   font-size: 0.85rem;
   color: var(--second-color);
 }
+
+.buttonContainers {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  gap: 1rem;
+  box-sizing: border-box;
+}

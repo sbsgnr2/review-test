@@ -1,8 +1,11 @@
 export interface itemType {
   id: string
-  title: string
-  subtitle: string
-  direction: string
+  location: string
+  address: string
+  country: string
+  state: string
+  city: string
+  name: string
 }
 
 export interface tableType {

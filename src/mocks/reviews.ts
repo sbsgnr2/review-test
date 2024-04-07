@@ -15,7 +15,7 @@ export const optionsSources = [
 ]
 
 export const optionsStates = [
-  { value: '1', label: 'In Progress', color: 'orange' },
-  { value: '2', label: 'Responded', color: 'green'},
-  { value: '3', label: 'Do not respond', color: 'tomato'},
+  { value: 'In Progress', label: 'In Progress', color: 'orange' },
+  { value: 'Responded', label: 'Responded', color: 'green'},
+  { value: 'Do Not Respond', label: 'Do not respond', color: 'tomato'},
 ]

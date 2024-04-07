@@ -34,7 +34,7 @@ export function Item({
             width='max-content'
             onClick={() => removeMessages(message.text)}
           >
-            <span>
+            <span className={styles.iconCont}>
               <CloseIcon />
             </span>
           </IconButton>

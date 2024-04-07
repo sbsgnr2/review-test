@@ -15,8 +15,9 @@ export function DDL({
   borderRadius,
   fontSize = '0.7rem',
   color = 'var(--second-color)',
+  resetSignal = false,
 }: DDLType) {
-  const { selected, handleSelected } = useDDL({ handleChange, value })
+  const { selected, handleSelected } = useDDL({ handleChange, value, resetSignal })
   return (
     <DropDownList
       options={options}

@@ -1,10 +1,7 @@
 import Table from '@/components/molecules/Table'
-import { useTable } from './useTable'
 import { COMPANY_HEADER, COMPANY_TABLE_CONFIG } from '@/utils/constants/companies'
 
-export function CompanyTable() {
-  const { data, isLoading, error, handlePagination } = useTable()
-
+export function CompanyTable({ data, isLoading, error, handlePagination }: any) {
   return (
     <>
       {isLoading ? (

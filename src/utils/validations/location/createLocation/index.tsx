@@ -1,46 +1,48 @@
 import * as z from 'zod'
 
 export const createLocationSchema = z.object({
+  location: z
+    .string({ invalid_type_error: 'The Location is required' })
+    .nonempty({ message: 'The Location is required' }),
   name: z
-    .string()
-    .nonempty()
-    .refine((value) => value.trim() !== '', {
-      message: 'The Name field is required',
-    }),
-  slug: z
-    .string()
-    .regex(/^[a-zA-Z0-9-]+$/)
-    .nonempty()
-    .refine((value) => value.trim() !== '', {
-      message: 'The slug must contain letters, numbers and half dashes, without spaces',
-    }),
-  company: z
-    .number()
-    .int()
-    .nonnegative()
-    .refine((value) => value >= 1, {
-      message: 'The company must be a non-negative integer',
-    }),
+    .string({ invalid_type_error: 'The Location name is required' })
+    .nonempty({ message: 'The Location name is required' }),
+  slug: z.string({ invalid_type_error: 'The Location slug is required' }).regex(/^[a-zA-Z0-9-]+$/, {
+    message: 'The slug must contain letters, numbers and half dashes, without spaces',
+  }),
+  company: z.number({ invalid_type_error: 'The company is required' }),
   tags: z.array(z.string()).optional(),
 })
+
+function getFirstErrorMessages(error: z.ZodError<any>) {
+  const firstErrors: { [key: string]: string } = {}
+  error.errors.forEach((err) => {
+    const key = err.path.join('.')
+    if (!(key in firstErrors)) {
+      firstErrors[key] = err.message
+    }
+  })
+  return firstErrors
+}
 
 export function validateCreateLocation({
   name,
   slug,
-  description,
-  smsMonthlyLimit,
+  company,
   tags,
+  location,
 }: {
   name: string
   slug: string
-  description: string
-  smsMonthlyLimit: number
+  company: number
   tags: string[]
+  location: string
 }) {
   try {
-    createLocationSchema.parse({ name, slug, description, smsMonthlyLimit, tags })
+    createLocationSchema.parse({ name, slug, company, tags, location })
     return true
   } catch (error: any) {
-    return error.errors || 'Unknown error'
+    const errors = getFirstErrorMessages(error)
+    return Object.keys(errors)?.map((key: any) => `${key}: ${errors[key]}`)
   }
 }

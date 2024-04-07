@@ -14,11 +14,13 @@ export function MultipleTags({
   fontSize,
   fontWeight = '500',
   label = 'Tags',
+  defaultValues,
 }: multipleTagsType) {
   const { handleInputChange, handleInputKeyDown, handleRemoveTag, addTag, tags, tagInput } =
     useMultipleTags({
       onTagsChange,
       resetSignal,
+      defaultValues,
     })
   return (
     <div className={styles.container}>
@@ -57,7 +59,7 @@ export function MultipleTags({
         </Button>
       </div>
       <div className={styles.tagsContainer}>
-        {tags.map((tag, index) => (
+        {tags?.map((tag, index) => (
           <React.Fragment key={tag}>
             <Tag tag={tag} index={index} handleRemoveTag={handleRemoveTag} />
           </React.Fragment>

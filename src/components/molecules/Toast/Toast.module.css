@@ -11,6 +11,7 @@
   align-items: flex-end;
   justify-content: flex-end;
   animation: slideIn 0.65s ease-in-out;
+  z-index: 4;
 }
 
 @keyframes slideIn {

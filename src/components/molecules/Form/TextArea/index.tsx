@@ -68,7 +68,7 @@ export function TextArea({
       )}
       {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
       <textarea
-        value={value}
+        value={inputValue}
         onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}

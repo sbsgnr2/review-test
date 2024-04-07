@@ -1,5 +1,3 @@
-import { HomeIcon } from '@/components/atoms/Icons/HomeIcon'
-
 export const optionsTypeUser = [
   { value: '1', label: 'Super-Admin' },
   { value: '2', label: 'Admin' },

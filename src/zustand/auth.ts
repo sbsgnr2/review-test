@@ -11,7 +11,6 @@ export const useStore = create((set: any, get: any) => ({
   setUser: (userData: any) => set({ user: userData }),
   logout: () => set({ isAuthenticated: false, token: null }),
   initializeStore: async () => {
-    // const token: string = localStorage.getItem('token') || '';
     const token = await axios.get('/api/cookies/getCookie')
     const user = jwt.decode(token?.data?.data || '')
     if (token) {

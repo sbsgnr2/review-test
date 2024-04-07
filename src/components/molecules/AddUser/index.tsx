@@ -7,12 +7,11 @@ import { useAddUser } from './useAddUser'
 import { MultipleTags } from '../Form/MultipleTags'
 import { DDL } from '../DDL'
 import { CustomPermission } from './CustomPermission'
-import { validateUserSurname } from '@/utils/validations/user/surname'
 import { validateUserEmail } from '@/utils/validations/user/email'
-import { validateUserName } from '@/utils/validations/user/name'
 import { Selector } from '../Selector'
+import { Toast } from '../Toast'
 
-export function AddUserForm() {
+export function AddUserForm({ handleStep }: { handleStep: (num: number) => void }) {
   const {
     handleSubmit,
     mailsValidator,
@@ -22,9 +21,15 @@ export function AddUserForm() {
     isOpen,
     handleOpen,
     handleClose,
-  } = useAddUser()
+    messages,
+    removeMessages,
+    user,
+    loading,
+  } = useAddUser({ handleStep })
+
   return (
     <>
+      <Toast messages={messages} removeMessages={removeMessages} />
       <div className={styles.container}>
         <Selector
           isOpen={isOpen}
@@ -33,21 +38,27 @@ export function AddUserForm() {
           firstOptionText='Unique'
           secondOptionText='Multiples'
         />
-        <BaseForm submitTitle='Next' handleSubmit={handleSubmit} horizontalJustify='flex-start'>
+        <BaseForm
+          submitTitle='Next'
+          handleSubmit={handleSubmit}
+          horizontalJustify='flex-start'
+          loading={loading}
+        >
           <DDL
             options={optionsTypeUser}
             handleChange={handleUserType}
             label='User Type'
             width='15rem'
             height='1.9rem'
+            value={user?.userType?.toString()}
             backgroundList='var(--main-bg-color)'
           />
-          {isOpen && (
+          {(isOpen || true) && (
             <>
               <TextBox
                 label='Name'
                 name='name'
-                required={true}
+                required={false}
                 variant='border_focused_outlined'
                 withErrorPadding={false}
                 placeholder='Enter Your Name'
@@ -57,12 +68,13 @@ export function AddUserForm() {
                 type='text'
                 fontWeight={'500'}
                 inputFontSize={'0.75rem'}
-                validationFunction={validateUserName}
+                value={user?.name}
+                validationFunction={() => null}
               />
               <TextBox
                 label='Last Name'
                 name='surname'
-                required={true}
+                required={false}
                 variant='border_focused_outlined'
                 withErrorPadding={false}
                 placeholder='Last Name'
@@ -72,7 +84,8 @@ export function AddUserForm() {
                 type='text'
                 fontWeight={'500'}
                 inputFontSize={'0.75rem'}
-                validationFunction={validateUserSurname}
+                value={user?.surname}
+                validationFunction={() => null}
               />
               <TextBox
                 label='Email'
@@ -87,6 +100,7 @@ export function AddUserForm() {
                 type='text'
                 fontWeight={'500'}
                 inputFontSize={'0.75rem'}
+                value={user?.email}
                 validationFunction={validateUserEmail}
               />
               <TextBox
@@ -102,13 +116,14 @@ export function AddUserForm() {
                 type='text'
                 fontWeight={'500'}
                 inputFontSize={'0.75rem'}
+                value={user?.phone}
                 validationFunction={() => {
                   return ''
                 }}
               />
             </>
           )}
-          {!isOpen && (
+          {false && (
             <TextBox
               label='Emails'
               name='emails'
@@ -138,6 +153,7 @@ export function AddUserForm() {
             maxWidth='30rem'
             type='text'
             fontWeight={'500'}
+            value={user?.subject}
             inputFontSize={'0.75rem'}
           />
           <TextArea
@@ -149,9 +165,14 @@ export function AddUserForm() {
             name='message'
             backgroundColor='var(--main-bg-color)'
             fontWeight={'500'}
+            value={user?.message}
             inputFontSize={'0.75rem'}
           />
-          <MultipleTags onTagsChange={handleTags} maxWidth='15rem' />
+          <MultipleTags
+            onTagsChange={handleTags}
+            maxWidth='15rem'
+            defaultValues={user?.tags || []}
+          />
           <CustomPermission handleChangeCustomPermission={handleChangeCustomPermission} />
         </BaseForm>
       </div>

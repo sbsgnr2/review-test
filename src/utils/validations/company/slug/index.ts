@@ -7,7 +7,7 @@ export async function validateCompanySlug(slug: string) {
     await validateSlug({ slug })
     return null
   } catch (error: any) {
-    if (error.response?.data?.code === 'SlugAlreadyRegistered'){
+    if (error.response?.data?.code === 'UniqueViolation'){
       return `${slug} slug already registered`
     }
     return 'The Slug field is required and must contain letters, numbers and half dashes, without spaces'

@@ -4,13 +4,11 @@ import { DefaultLayout } from '@/components/layouts/DefaultLayout'
 import { ReactElement } from 'react'
 import { SectionTitle } from '@/components/molecules/SectionTitle'
 import { NavigationText } from '@/components/atoms/NavigationText'
-import { HeaderSection } from '@/components/molecules/HeaderSection'
-import Table from '@/components/molecules/Table'
-import { LOCATION_DATA, LOCATION_HEADER, LOCATION_TABLE_CONFIG } from '@/mocks/table'
-import { CommonFilters } from '@/components/molecules/Users/CommonFilters'
 import { userValidation } from '@/utils/functions/userValidation'
+import { getAll } from '@/services/locations/getAll'
+import { Body } from '@/components/molecules/Location/Body'
 
-export default function Locations() {
+export default function Locations({ total }: any) {
   return (
     <>
       <Head>
@@ -21,22 +19,7 @@ export default function Locations() {
       <main className={styles.main}>
         <SectionTitle title='Locations' />
         <NavigationText text='< Back to Account and Settings' href='/settings' />
-        <HeaderSection
-          textButton='+ Add Location'
-          title='Locations'
-          href='/settings/locations/add-location'
-        />
-        <CommonFilters />
-        <Table
-          header={LOCATION_HEADER}
-          data={LOCATION_DATA}
-          tableConfig={LOCATION_TABLE_CONFIG}
-          width='100%'
-          backgroundColor='transparent'
-          headerColor='var(--primary-color)'
-          handleDelete={() => {}}
-          handleEdit={() => {}}
-        />
+        <Body total={total} />
       </main>
     </>
   )
@@ -48,5 +31,6 @@ Locations.getLayout = function getLayout(page: ReactElement) {
 
 export async function getServerSideProps(context: any) {
   const token = context.req?.cookies?.token
-  return await userValidation({ token })
+  const locations = await getAll({ page: '1', pageSize: '5', token })
+  return await userValidation({ token, extraProps: { total: locations?.data?.totalItems || 0 } })
 }

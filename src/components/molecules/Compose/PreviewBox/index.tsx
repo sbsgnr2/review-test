@@ -18,7 +18,7 @@ export function PreviewBox() {
             <EmailData />
             {topMessage && <div>{RenderContent(topMessage)}</div>}
             <CustomImage
-              imgUrl={'/images/clutchLogo.png'}
+              imgUrl={'/images/ClutchLogo.png'}
               type='standard'
               width='100%'
               height='6.2rem'

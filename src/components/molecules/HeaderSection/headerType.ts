@@ -6,4 +6,7 @@ export interface headerType {
   title: string,
   href?: string,
   children?: ReactNode
+  useTotalFunction?: any
 }
+
+export interface useHeaderType { href?: string }

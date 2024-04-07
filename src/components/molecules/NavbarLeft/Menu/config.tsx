@@ -38,7 +38,7 @@ export const MENU = [
       {
         title: 'Requests',
         icon: <AskIcon width='1.4rem' height='1.4rem' />,
-        href: '/requests',
+        href: '/requests/overview',
       },
     ],
   },

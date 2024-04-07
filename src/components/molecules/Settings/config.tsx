@@ -1,5 +1,4 @@
 import { AlertIcon } from '@/components/atoms/Icons/AlertIcon'
-import { CampaignIcon } from '@/components/atoms/Icons/CampaignIcon'
 import { CompanyIcon } from '@/components/atoms/Icons/CompanyIcon'
 import { LocationCircleIcon } from '@/components/atoms/Icons/LocationCircleIcon'
 import { ProfileIcon } from '@/components/atoms/Icons/ProfileIcon'
@@ -33,12 +32,6 @@ export const SETTINGS_CONFIG: sectionCardType[] = [
         subtitle: 'Manage who has access to your account',
         icon: <UserGroupIcon width='2rem' height='2rem' />,
         href: '/settings/users',
-      },
-      {
-        title: 'Campaigns',
-        subtitle: 'Manage yout Campaigns',
-        icon: <CampaignIcon width='2rem' height='2rem' />,
-        href: '/settings/request-reviews/overview',
       },
     ],
   },

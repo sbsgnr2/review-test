@@ -14,6 +14,7 @@ import { Toast } from '../Toast'
 export function CompanyForm() {
   const { handleSubmit, handleTags, loading, messages, removeMessages, resetSignal } =
     useCompanyForm()
+
   return (
     <div className={generalStyle.container}>
       <Toast messages={messages} removeMessages={removeMessages} />
@@ -38,6 +39,7 @@ export function CompanyForm() {
           fontWeight={'500'}
           inputFontSize={'0.75rem'}
           validationFunction={validateCompanyName}
+          resetSignal={resetSignal}
         />
         <TextBox
           label='Slug'
@@ -53,6 +55,7 @@ export function CompanyForm() {
           fontWeight={'500'}
           inputFontSize={'0.75rem'}
           validationFunction={validateCompanySlug}
+          resetSignal={resetSignal}
         />
         <NumberBox
           label='SMS Monthly Limit'

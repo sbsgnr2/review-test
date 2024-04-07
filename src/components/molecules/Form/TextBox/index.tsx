@@ -33,12 +33,15 @@ export function TextBox({
   fontWeight,
   labelColor = 'var(--primary-color)',
   positionTop = undefined,
+  resetSignal
 }: textBoxtype) {
   const { focused, handleFocus, handleBlur, inputValue, handleChange, error } = useTextBox({
     changeValue,
     value,
     validationFunction,
+    resetSignal
   })
+
   return (
     <div
       className={
@@ -70,7 +73,7 @@ export function TextBox({
         name={name}
         id={name}
         type={type}
-        value={value}
+        value={inputValue}
         onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}

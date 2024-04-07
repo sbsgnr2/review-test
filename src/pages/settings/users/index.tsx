@@ -4,11 +4,11 @@ import React from 'react'
 import { DefaultLayout } from '@/components/layouts/DefaultLayout'
 import { ReactElement } from 'react'
 import { NavigationText } from '@/components/atoms/NavigationText'
-import { HeaderSection } from '@/components/molecules/HeaderSection'
-import { FullTable } from '@/components/molecules/Users/FullTable'
 import { userValidation } from '@/utils/functions/userValidation'
+import { Body } from '@/components/molecules/Users/Body'
+import { getAll } from '@/services/users/getAll'
 
-export default function Settings() {
+export default function Settings({ total }: any) {
   return (
     <>
       <Head>
@@ -18,12 +18,7 @@ export default function Settings() {
       </Head>
       <main className={stylesSetting.main}>
         <NavigationText text='< Back to Account and Settings' href='/settings' />
-        <HeaderSection
-          textButton='+ Add User'
-          title='Users'
-          href='/settings/users/add-user/create-profile'
-        />
-        <FullTable />
+        <Body total={total} />
       </main>
     </>
   )
@@ -35,5 +30,6 @@ Settings.getLayout = function getLayout(page: ReactElement) {
 
 export async function getServerSideProps(context: any) {
   const token = context.req?.cookies?.token
-  return await userValidation({ token })
+  const users = await getAll({ page: '1', pageSize: '5', token })
+  return await userValidation({ token, extraProps: { total: users?.data?.totalItems || 0 } })
 }

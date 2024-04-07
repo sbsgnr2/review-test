@@ -1,34 +1,30 @@
 import Head from 'next/head'
 import generalStyles from '@/styles/AddUser.module.css'
 import { DefaultLayout } from '@/components/layouts/DefaultLayout'
-import { ReactElement } from 'react'
-import { SectionTitle } from '@/components/molecules/SectionTitle'
-import { AddUserForm } from '@/components/molecules/AddUser'
-import { NavigationText } from '@/components/atoms/NavigationText'
-import { CheckedPoints } from '@/components/molecules/CheckedPoints'
+import { ReactElement, useEffect, useState } from 'react'
 import { userValidation } from '@/utils/functions/userValidation'
+import FirstStep from '@/components/organisms/UserFlow/FirstStep'
+import SecondStep from '@/components/organisms/UserFlow/SecondStep'
+import { NavigationText } from '@/components/atoms/NavigationText'
+import { SectionTitle } from '@/components/molecules/SectionTitle'
+import ThirdStep from '@/components/organisms/UserFlow/ThirdStep'
+import { useUser } from '@/zustand/user'
 
 export default function AddUser() {
-  const checkedArr = [
-    {
-      title: 'Create Profile',
-      label: 1,
-      completed: false,
-      actual: true,
-    },
-    {
-      title: 'Locations',
-      label: 2,
-      completed: false,
-      actual: false,
-    },
-    {
-      title: 'Finish',
-      label: 3,
-      completed: false,
-      actual: false,
-    },
-  ]
+  const [step, setStep] = useState<number>(1)
+  const { setUser } = useUser()
+
+  function handleStep(num: number) {
+    setStep(num)
+  }
+
+  /*
+    useEffect(() => {
+      return () => {
+        setUser({})
+      }
+    }, [setUser])
+  */
 
   return (
     <>
@@ -40,8 +36,9 @@ export default function AddUser() {
       <main className={generalStyles.main}>
         <NavigationText text='< Back to Users' href='/settings/users' />
         <SectionTitle title='Create New User' />
-        <CheckedPoints checkedArr={checkedArr} />
-        <AddUserForm />
+        {step === 1 && <FirstStep handleStep={handleStep} />}
+        {step === 2 && <SecondStep handleStep={handleStep} />}
+        {step === 3 && <ThirdStep handleStep={handleStep} />}
       </main>
     </>
   )

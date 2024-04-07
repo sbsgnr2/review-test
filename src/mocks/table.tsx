@@ -1,35 +1,10 @@
-import { DDL } from '@/components/molecules/DDL'
-import { optionsStates } from './reviews'
-
 export const USER_HEADER = [
   { id: '1', title: 'Fullname', field: 'fullname', withArrows: true },
   { id: '2', title: 'Email', field: 'email', withArrows: true },
-  { id: '3', title: 'Gender', field: 'gender', withArrows: true },
-  { id: '4', title: 'Age', field: 'age', withArrows: true },
-]
-
-export const USER_DATA = [
-  {
-    id: '1',
-    fullname: 'Jhony Chu',
-    email: 'jhonychu@gmail.com',
-    gender: 'male',
-    age: 30,
-  },
-  {
-    id: '2',
-    fullname: 'Mario Aguilar',
-    email: 'marioaguilar@gmail.com',
-    gender: 'male',
-    age: 31,
-  },
-  {
-    id: '3',
-    fullname: 'Kenny He',
-    email: 'kennyhe@gmail.com',
-    gender: 'male',
-    age: 32,
-  },
+  { id: '3', title: 'Type', field: 'type', withArrows: true },
+  { id: '4', title: 'Verify', field: 'verify', withArrows: true },
+  { id: '5', title: 'Created Date', field: 'createdInfo', withArrows: true },
+  { id: '6', title: 'Updated Date', field: 'updatedInfo', withArrows: true },
 ]
 
 export const USER_TABLE_CONFIG = {
@@ -40,7 +15,7 @@ export const USER_TABLE_CONFIG = {
   withPagination: true,
   colorRows: ['fullname'],
   starRows: [],
-  multipleRows: [],
+  multipleRows: ['createdInfo', 'updatedInfo'],
   redirectButtons: [],
   selecteds: [],
 }
@@ -87,25 +62,11 @@ export const USER_ACTIVITY_TABLE_CONFIG = {
 
 export const LOCATION_HEADER = [
   { id: '1', title: 'Name', field: 'name', withArrows: true },
-  { id: '2', title: 'Company', field: 'company', withArrows: true },
-]
-
-export const LOCATION_DATA = [
-  {
-    id: '1',
-    name: 'Location 1',
-    company: 'Company 1',
-  },
-  {
-    id: '2',
-    name: 'Location 2',
-    company: 'Company 2',
-  },
-  {
-    id: '3',
-    name: 'Location 3',
-    company: 'Company 3',
-  },
+  { id: '2', title: 'Account', field: 'accountName', withArrows: true },
+  { id: '3', title: 'Country', field: 'country', withArrows: true },
+  { id: '4', title: 'City', field: 'city', withArrows: true },
+  { id: '5', title: 'Created Date', field: 'createdInfo', withArrows: true },
+  { id: '6', title: 'Updated Date', field: 'updatedInfo', withArrows: true },
 ]
 
 export const LOCATION_TABLE_CONFIG = {
@@ -115,7 +76,7 @@ export const LOCATION_TABLE_CONFIG = {
   withEdit: true,
   withPagination: true,
   colorRows: ['name'],
-  multipleRows: [],
+  multipleRows: ['createdInfo', 'updatedInfo'],
   starRows: [],
   redirectButtons: [],
   selecteds: [],

@@ -1,4 +1,4 @@
 export interface redirectButtonType {
-  element: string
+  element: string | null
   redirect: ({ href }: { href: string }) => void
 }

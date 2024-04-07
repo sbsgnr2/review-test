@@ -4,27 +4,41 @@ import { MultipleTags } from '../Form/MultipleTags'
 import { TextBox } from '../Form/TextBox'
 import { useAddLocationForm } from './useAddLocationForm'
 import { DDL } from '../DDL'
-import { optionsCompany } from '@/mocks/addLocationForm'
 import { validateLocationName } from '@/utils/validations/location/name'
-import { validateLocationSlug } from '@/utils/validations/location/slug/slug'
+import { validateLocationSlug } from '@/utils/validations/location/slug'
+import { Toast } from '../Toast'
+import { GeosuggestField } from './GeosuggestField'
 
 export function AddLocationForm() {
-  const { handleSubmit, handleTags, handleCompany } = useAddLocationForm()
+  const {
+    handleSubmit,
+    handleTags,
+    handleCompany,
+    messages,
+    removeMessages,
+    data,
+    resetSignal,
+    refLocationOption,
+    loading,
+  } = useAddLocationForm()
 
   return (
     <div className={generalStyle.container}>
+      <Toast messages={messages} removeMessages={removeMessages} />
       <BaseForm
         submitTitle='Add Location'
         handleSubmit={handleSubmit}
         horizontalJustify='flex-start'
+        loading={loading}
       >
         <DDL
-          options={optionsCompany}
+          options={data}
           handleChange={handleCompany}
           label='Company'
           width='15rem'
           height='1.9rem'
           backgroundList='var(--main-bg-color)'
+          resetSignal={resetSignal}
         />
         <TextBox
           label='Name'
@@ -40,6 +54,7 @@ export function AddLocationForm() {
           fontWeight={'500'}
           inputFontSize={'0.75rem'}
           validationFunction={validateLocationName}
+          resetSignal={resetSignal}
         />
         <TextBox
           label='Slug'
@@ -55,8 +70,10 @@ export function AddLocationForm() {
           fontWeight={'500'}
           inputFontSize={'0.75rem'}
           validationFunction={validateLocationSlug}
+          resetSignal={resetSignal}
         />
-        <MultipleTags onTagsChange={handleTags} maxWidth='25rem' />
+        <GeosuggestField refLocationOption={refLocationOption} resetSignal={resetSignal} />
+        <MultipleTags onTagsChange={handleTags} maxWidth='25rem' resetSignal={resetSignal} />
       </BaseForm>
     </div>
   )

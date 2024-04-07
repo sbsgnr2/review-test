@@ -3,7 +3,7 @@ import { SourceColumn } from '@/components/molecules/Reviews/SourceColumn'
 
 export const REVIEWS_HEADER = [
   { id: 1, title: 'Date', field: 'date', withArrows: true },
-  { id: 2, title: 'Location', field: 'location', withArrows: true },
+  { id: 2, title: 'Location', field: 'locationDetail', withArrows: true },
   { id: 3, title: 'Rating', field: 'rating', withArrows: true },
   { id: 4, title: 'Source', field: 'source', withArrows: true },
   { id: 5, title: 'Summary', field: 'summary', withArrows: true },
@@ -111,11 +111,11 @@ export const REVIEWS_TABLE_CONFIG = {
   withEdit: true,
   withPagination: true,
   colorRows: [],
-  multipleRows: ['location'],
+  multipleRows: ['locationDetail'],
   starRows: ['rating'],
   redirectButtons: ['hrefSource'],
   selecteds: [
-    { field: 'status', element: (selected: any) => OptionsStatesDDL({ selected }) },
+    { field: 'status', element: (selected: any, id: string) => OptionsStatesDDL({ selected, id }) },
     { field: 'source', element: (source: string) => SourceColumn({ source }) },
   ],
 }

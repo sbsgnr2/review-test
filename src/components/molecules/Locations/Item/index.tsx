@@ -5,12 +5,31 @@ import styles from './Item.module.css'
 import { itemCompType } from './itemType'
 
 export function Item({ item, handleSelect, isAddIcon = true }: itemCompType) {
+  let locationData = ''
+  if (item.country) {
+    locationData += item.country
+  }
+
+  if (item.state) {
+    if (locationData.length > 0) {
+      locationData += ', '
+    }
+    locationData += `${item.state}`
+  }
+
+  if (item.city) {
+    if (locationData.length > 0) {
+      locationData += ', '
+    }
+    locationData += `${item.city}`
+  }
+
   return (
     <div className={styles.item}>
       <div className={styles.itemFirstColumn}>
-        <p className={styles.itemTitle}>{item.title}</p>
-        <p className={styles.itemParagraph}>{item.subtitle}</p>
-        <p className={styles.itemParagraph}>{item.direction}</p>
+        <p className={styles.itemTitle}>{item.location || ''}</p>
+        <p className={styles.itemParagraph}>{locationData}</p>
+        <p className={styles.itemParagraph}>{item.address}</p>
       </div>
       <div className={styles.buttonCont}>
         <Button

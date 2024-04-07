@@ -25,3 +25,7 @@
   font-size: 0.8rem;
   fill: var(--contrast-color);
 }
+
+.iconCont {
+  fill: var(--contrast-color);
+}

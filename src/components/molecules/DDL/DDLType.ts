@@ -2,7 +2,7 @@ import { OptionType } from '../Form/DropDownList/DropDownListType'
 
 export interface DDLType {
   options: OptionType[]
-  handleChange: (selectedValue: string) => void
+  handleChange: (selectedValue: string) => void,
   label: string
   backgroundList?: string
   fontWeight?: string
@@ -13,9 +13,11 @@ export interface DDLType {
   borderRadius?: string
   color?: string
   fontSize?: string
+  resetSignal?: boolean
 }
 
 export interface useDDLType {
   value?: string | null
   handleChange: (selectedValue: string) => void
+  resetSignal?: boolean
 }

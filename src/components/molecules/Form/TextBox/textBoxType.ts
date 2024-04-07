@@ -23,6 +23,7 @@ export interface textBoxtype {
   fontWeight?: string
   labelColor?: string
   positionTop?: string
+  resetSignal?: boolean
 }
 
 export interface textBookHookType { value: string|number, onBlur?: (event: FocusEvent<HTMLInputElement>) => void}
@@ -31,4 +32,5 @@ export interface useTextBoxType {
   value?: string | number
   changeValue: (event: ChangeEvent<HTMLInputElement>) => void
   validationFunction: (value: string) => string | null | Promise<string | null>
+  resetSignal?: boolean
 }

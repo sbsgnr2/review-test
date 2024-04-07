@@ -5,7 +5,7 @@ export interface bodyType {
   slug: string,
   description?: string,
   smsMonthlyLimit: number,
-  tags?: string[],
+  tags?: string | null,
   logo?: string,
 }
 

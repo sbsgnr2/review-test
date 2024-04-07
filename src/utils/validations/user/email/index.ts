@@ -1,8 +1,15 @@
+import { validateEmailAddress } from "@/services/api/users/validateEmailAddress"
 import { validateEmail } from "../../email"
 
-export function validateUserEmail(value: string) {
+export async function validateUserEmail(value: string) {
   const isValid = validateEmail(value)
-  // valid async email exist
+  if (isValid) {
+    const exist = await validateEmailAddress({ email: value })
+    if (exist?.data?.isValid) {
+      return 'The email address is already in use'
+    }
+  }
+
   if (!isValid) {
     return 'Enter a valid email address'
   }

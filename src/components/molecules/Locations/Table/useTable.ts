@@ -1,14 +1,45 @@
 import { useState } from "react"
-import { itemType, useTableType } from "./tableType"
-import { LOCATIONS } from "@/mocks/addLocationForm"
+import { useTableType } from "./tableType"
+import useSWR from "swr"
+import { useLocations } from "@/zustand/locations"
+
+const fetcher = async (url: string) => {
+  const res = await fetch(url)
+  if (!res.ok) {
+    switch (res.status) {
+      case 401:
+        window.location.href = '/login'
+        break;
+      default:
+        throw new Error('No Data')
+    }
+  }
+  return res.json()
+}
 
 export function useTable ({ handleChange, locations }: useTableType) {
   const [selectedItems, setSelectedItems] = useState<string[]>(locations || [])
+  const GET_ALL_URL = `/api/locations/getAllLocations`
 
+  const { setLocations } = useLocations()
+
+  const { data } = useSWR(
+    GET_ALL_URL,
+    fetcher,
+    {
+      refreshInterval: 2000,
+      onSuccess: () => {
+        if (data) {
+          setLocations(data)
+        }
+      }
+    },
+  )
+  
   function handleAddItem({ id }: { id: string }) {
     if (id === 'all') {
-      setSelectedItems(LOCATIONS.map((item: itemType) => item.id))
-      handleChange && handleChange(LOCATIONS.map((item: itemType) => item.id))
+      setSelectedItems(data?.data?.map((item: any) => item.id))
+      handleChange && handleChange(data?.data?.map((item: any) => item.id))
     } else if (!selectedItems.includes(id)) {
       setSelectedItems([...selectedItems, id])
       handleChange && handleChange([...selectedItems, id])
@@ -25,5 +56,5 @@ export function useTable ({ handleChange, locations }: useTableType) {
     }
   }
   
-  return { LOCATIONS, selectedItems, handleAddItem, handleRemoveItem }
+  return { LOCATIONS: data?.data, selectedItems, handleAddItem, handleRemoveItem }
 }

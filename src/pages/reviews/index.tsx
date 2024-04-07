@@ -3,13 +3,11 @@ import styles from '@/styles/Home.module.css'
 import { DefaultLayout } from '@/components/layouts/DefaultLayout'
 import { ReactElement } from 'react'
 import { userValidation } from '@/utils/functions/userValidation'
-import { HeaderSection } from '@/components/molecules/HeaderSection'
-import { HeaderButtons } from '@/components/molecules/Reviews/HeaderButtons'
-import { Filters } from '@/components/molecules/Reviews/Filters'
-import Table from '@/components/molecules/Table'
-import { REVIEWS_DATA, REVIEWS_HEADER, REVIEWS_TABLE_CONFIG } from '@/utils/constants/reviews'
 
-export default function Reviews() {
+import { getAll } from '@/services/reviews/getAll'
+import { Body } from '@/components/molecules/Reviews/Body'
+
+export default function Reviews({ total }: any) {
   return (
     <>
       <Head>
@@ -18,21 +16,7 @@ export default function Reviews() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
       <main className={styles.main}>
-        <HeaderSection title='Reviews' count={0}>
-          <HeaderButtons />
-        </HeaderSection>
-        <Filters />
-        <Table
-          header={REVIEWS_HEADER}
-          data={REVIEWS_DATA}
-          tableConfig={REVIEWS_TABLE_CONFIG}
-          width='100%'
-          backgroundColor='transparent'
-          headerColor='var(--primary-color)'
-          handleDelete={() => {}}
-          handleEdit={() => {}}
-          padding='0 0 5rem 0'
-        />
+        <Body total={total} />
       </main>
     </>
   )
@@ -44,5 +28,6 @@ Reviews.getLayout = function getLayout(page: ReactElement) {
 
 export async function getServerSideProps(context: any) {
   const token = context.req?.cookies?.token
-  return await userValidation({ token })
+  const reviews = await getAll({ page: '1', pageSize: '5', token })
+  return await userValidation({ token, extraProps: { total: reviews?.data?.totalItems || 0 } })
 }

@@ -1,11 +1,14 @@
-import { optionsStates } from "@/mocks/reviews";
-import { DDL } from "../../DDL";
+import { optionsStates } from '@/mocks/reviews'
+import { DDL } from '../../DDL'
+import { useOptionsStatesDDL } from './useOptionsStatesDDL'
 
-export function OptionsStatesDDL({ selected }: { selected: string }) {
+export function OptionsStatesDDL({ selected, id }: { selected: string; id: string }) {
+  const { handleStatus } = useOptionsStatesDDL({ id })
+
   return (
     <DDL
       options={optionsStates}
-      handleChange={() => {}}
+      handleChange={handleStatus}
       label=''
       width='11rem'
       required={false}

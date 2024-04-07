@@ -1,3 +1,5 @@
+import { getFullName } from "./getFullName";
+
 export function companiesAdapter(apiResponse: any) {
   const transformedData = {
     page: apiResponse.page,
@@ -17,7 +19,9 @@ export function companiesAdapter(apiResponse: any) {
         slug: company.slug,
         description: company.description,
         logo: company.logo,
-        smsMonthlyLimit: company.smsMonthlyLimit
+        smsMonthlyLimit: company.smsMonthlyLimit,
+        createdInfo: [company.createdAt?.substring(0, 10), `by ${getFullName({firstName: company.accountCreator?.firstName, lastName: company.accountCreator?.lastName})}`],
+        updatedInfo: [company.updatedAt?.substring(0, 10), `by ${getFullName({firstName: company.accountLastUpdater?.firstName, lastName: company.accountLastUpdater?.lastName})}`],
       }
     }),
     totalpageCount: apiResponse.itemsInPage,

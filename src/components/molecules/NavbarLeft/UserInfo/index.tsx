@@ -7,7 +7,6 @@ import { UserImage } from './UserImage'
 
 export function UserInfo({ isOpen = true }: userInfoType) {
   const { user, handleLogOut } = useUserInfo()
-
   return (
     <div className={styles.userInfo} style={{ justifyContent: isOpen ? 'flex-start' : 'center' }}>
       <UserImage user={user} isOpen={isOpen} />

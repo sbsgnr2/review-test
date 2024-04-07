@@ -8,6 +8,6 @@ export interface bodyType {
 
 export function getAll (body: bodyType) {
   const API_URL = process.env.API_URL
-  return axios.get(`${API_URL}/companies/by?page=${body.page}&pageSize=${body.pageSize}`, 
+  return axios.get(`${API_URL}/accounts/by?page=${body.page}&pageSize=${body.pageSize}&includes=true`, 
   { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${body.token}`}});
 }

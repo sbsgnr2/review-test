@@ -23,7 +23,7 @@ export default function FirstColumn({ selectedItems, handleSelect, items }: firs
           return (
             <React.Fragment key={item.id}>
               {!selectedItems.includes(item.id) &&
-                item.title.toLowerCase().includes(search.toLowerCase()) && (
+                item.name?.toLowerCase().includes(search.toLowerCase()) && (
                   <Item item={item} handleSelect={handleSelect} />
                 )}
             </React.Fragment>

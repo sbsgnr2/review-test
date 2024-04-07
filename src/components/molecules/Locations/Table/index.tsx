@@ -14,7 +14,6 @@ export default function Table({
     handleChange,
     locations,
   })
-
   return (
     <div
       className={styles.table}
@@ -24,12 +23,20 @@ export default function Table({
         width,
       }}
     >
-      <FirstColumn items={LOCATIONS} selectedItems={selectedItems} handleSelect={handleAddItem} />
-      <SecondColumn
-        items={LOCATIONS}
-        selectedItems={selectedItems}
-        handleSelect={handleRemoveItem}
-      />
+      {LOCATIONS && (
+        <>
+          <FirstColumn
+            items={LOCATIONS}
+            selectedItems={selectedItems}
+            handleSelect={handleAddItem}
+          />
+          <SecondColumn
+            items={LOCATIONS}
+            selectedItems={selectedItems}
+            handleSelect={handleRemoveItem}
+          />
+        </>
+      )}
     </div>
   )
 }

@@ -1,11 +1,11 @@
 export const MENU_OPTIONS = [
-  { title: 'Overview', href: '/settings/request-reviews/overview' },
-  { title: 'Compose', href: '/settings/request-reviews/compose' },
-  { title: 'History', href: '/settings/request-reviews/history' },
-  { title: 'Templates', href: '/settings/request-reviews/templates' },
-  { title: 'Microsurveys', href: '/settings/request-reviews/microsurveys' },
-  { title: 'Campaigns', href: '/settings/request-reviews/campaigns' },
-  { title: 'Way to Ask', href: '/settings/request-reviews/way-to-ask' },
+  { title: 'Overview', href: '/requests/overview' },
+  { title: 'Compose', href: '/requests/compose' },
+  { title: 'History', href: '/requests/history' },
+  { title: 'Templates', href: '/requests/templates' },
+  { title: 'Microsurveys', href: '/requests/microsurveys' },
+  { title: 'Campaigns', href: '/requests/campaigns' },
+  { title: 'Way to Ask', href: '/requests/way-to-ask' },
 ]
 
 export const FORMAT_OPTIONS = [

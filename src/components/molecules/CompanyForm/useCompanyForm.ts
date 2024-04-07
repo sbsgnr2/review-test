@@ -26,7 +26,7 @@ export function useCompanyForm () {
     const { name, slug, description, smsMonthlyLimit, logo } = Object.fromEntries(new window.FormData(event.currentTarget)) as { name: string, slug: string, description: string, smsMonthlyLimit: string, logo: any }
     const tags = refTags.current
     
-    let errors: string[] = validateCreateCompany({ name, slug, description, smsMonthlyLimit: parseInt(smsMonthlyLimit), tags })
+    let errors: any = validateCreateCompany({ name, slug, description, smsMonthlyLimit: parseInt(smsMonthlyLimit), tags })
     if (errors) {
       const errorSlug: string | null = await validateCompanySlug(slug)
       if (errorSlug) {
@@ -42,11 +42,23 @@ export function useCompanyForm () {
       if (logo?.name?.length > 0) {
         image = await upload({ image: logo, folder: 'company' })
       }
-      const payload = { name, slug, description, smsMonthlyLimit: parseInt(smsMonthlyLimit), tags, logo: image?.data?.data }
+
+      const payload = { 
+        name, 
+        slug, 
+        description, 
+        smsMonthlyLimit: parseInt(smsMonthlyLimit), 
+        tags: tags.length ? JSON.stringify(tags) : null, 
+        logo: image?.data?.data 
+      }
+
       const response = await create(payload).catch((error) => {
         switch (error.response?.status) {
           case 406:
             setMessages([{type: 'error', text: error.response?.data?.message || 'Make sure you fill out all fields with valid values'}])
+            break;
+          case 400:
+            setMessages([{type: 'error', text: 'Make sure you fill out all fields with valid values'}])
             break;
           case 401:
             window.location.href = '/login'

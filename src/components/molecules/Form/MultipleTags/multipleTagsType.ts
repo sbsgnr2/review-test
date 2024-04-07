@@ -1,3 +1,5 @@
+import { MutableRefObject } from "react"
+
 export interface multipleTagsType {
   onTagsChange: ({ tags }: { tags: string[] }) => void
   maxWidth?: string
@@ -6,9 +8,11 @@ export interface multipleTagsType {
   fontSize?: string,
   fontWeight?: string,
   label?: string
+  defaultValues?: any
 }
 
 export interface useMultipleTagsType { 
   onTagsChange: ({ tags }: { tags: string[] }) => void, 
   resetSignal?: boolean 
+  defaultValues?: any
 }

@@ -2,11 +2,14 @@ import { TextBox } from '../Form/TextBox'
 import { BaseForm } from '../Form/BaseForm'
 import { validatePassword } from '@/utils/validations/password'
 import { useResetPasswordForm } from './useResetPasswordForm'
+import { Toast } from '../Toast'
 
 export function ResetPasswordForm() {
-  const { validateRepeatPassword } = useResetPasswordForm()
+  const { validateRepeatPassword, removeMessages, handleSubmit, messages, resetSignal } = useResetPasswordForm()
+
   return (
-    <BaseForm submitTitle='Update' handleSubmit={() => {}} horizontalJustify='flex-start'>
+    <BaseForm submitTitle='Update' handleSubmit={handleSubmit} horizontalJustify='flex-start'>
+      <Toast messages={messages} removeMessages={removeMessages} />
       <TextBox
         label='New Password'
         name='password'
@@ -20,6 +23,7 @@ export function ResetPasswordForm() {
         type='text'
         fontWeight={'500'}
         inputFontSize={'0.75rem'}
+        resetSignal={resetSignal}
         validationFunction={validatePassword}
       />
       <TextBox
@@ -35,6 +39,7 @@ export function ResetPasswordForm() {
         type='text'
         fontWeight={'500'}
         inputFontSize={'0.75rem'}
+        resetSignal={resetSignal}
         validationFunction={validateRepeatPassword}
       />
     </BaseForm>

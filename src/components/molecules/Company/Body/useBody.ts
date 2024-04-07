@@ -16,7 +16,7 @@ const fetcher = async (url: string) => {
   return res.json()
 }
 
-export function useTable () {
+export function useBody () {
   const [pageNumber, setPageNumber] = useState(1)
   const GET_ALL_URL = `/api/companies/getCompanies?page=${pageNumber}&pageSize=5`
   const { setCompanies } = useCompanies()

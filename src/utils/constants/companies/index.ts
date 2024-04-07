@@ -1,8 +1,9 @@
 export const COMPANY_HEADER = [
   { id: '1', title: 'Name', field: 'name', withArrows: true },
   { id: '2', title: 'Slug', field: 'slug', withArrows: true },
-  { id: '3', title: 'Updated Date', field: 'updatedDate', withArrows: true },
-  { id: '4', title: 'Created Date', field: 'createdDate', withArrows: true },
+  { id: '3', title: 'Monthly SMS Limit', field: 'smsMonthlyLimit', withArrows: true },
+  { id: '4', title: 'Updated Date', field: 'updatedInfo', withArrows: true },
+  { id: '5', title: 'Created Date', field: 'createdInfo', withArrows: true },
 ]
 
 export const COMPANY_TABLE_CONFIG = {
@@ -12,7 +13,7 @@ export const COMPANY_TABLE_CONFIG = {
   withEdit: true,
   withPagination: true,
   colorRows: ['name'],
-  multipleRows: [],
+  multipleRows: ['updatedInfo', 'createdInfo'],
   starRows: [],
   redirectButtons: [],
   selecteds: [],
