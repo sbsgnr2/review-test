@@ -1,6 +1,6 @@
 import { extractGeoData } from "@/utils/functions/extractGeoData";
 import { useEffect, useRef, useState } from "react"
-import Geosuggest from "react-geosuggest"
+import Geosuggest from '@ubilabs/react-geosuggest'
 
 export function useGeosuggestField ({ refLocationOption, resetSignal }: any) {
   const [isSuggestionsOpen, setIsSuggestionsOpen] = useState<boolean>(false)
